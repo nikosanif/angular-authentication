@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "PKief.material-icon-theme",
+    "dbaeumer.vscode-eslint",
+    "vivaxy.vscode-conventional-commits"
+  ]
+}
