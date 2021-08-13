@@ -1,6 +1,6 @@
 {
   "editor.tabSize": 2,
-  "editor.rulers": [80],
+  "editor.rulers": [90],
   "editor.formatOnSave": true,
 
   "workbench.iconTheme": "material-icon-theme",
@@ -20,7 +20,9 @@
 
     "statusBar.background": "#01b698",
     "statusBar.foreground": "#18162d",
-    "statusBarItem.hoverBackground": "#00a489b7"
+
+    "statusBarItem.hoverBackground": "#00a489b7",
+    "statusBarItem.activeBackground": "#01725fb7"
   },
 
   "conventionalCommits.scopes": [
