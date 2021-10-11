@@ -25,6 +25,10 @@
     "@angular/platform-browser": "~12.2.9",
     "@angular/platform-browser-dynamic": "~12.2.9",
     "@angular/router": "~12.2.9",
+    "@taiga-ui/cdk": "^2.19.0",
+    "@taiga-ui/core": "^2.19.0",
+    "@taiga-ui/icons": "^2.19.0",
+    "@taiga-ui/kit": "^2.19.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
