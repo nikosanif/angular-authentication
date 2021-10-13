@@ -1,11 +1,16 @@
 <tui-root>
-  <header>
+  <header class="aa--flex aa--justify-between">
     <!-- BEGIN: Title -->
     <a routerLink="/home" class="aa--flex aa--items-center">
       <img src="/assets/logo.svg" class="logo-icon" />
       <h1>Angular Authentication</h1>
     </a>
     <!-- END: Title -->
+
+    <div>
+      <a tuiLink routerLink="/login">Login</a>
+      <a tuiLink routerLink="/secured-feat" class="aa--ml-5">Secured Feature</a>
+    </div>
   </header>
 
   <div class="main-content">
