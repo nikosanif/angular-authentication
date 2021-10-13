@@ -12,7 +12,7 @@ import { Injectable } from '@angular/core';
 export class AuthGuardService implements CanActivate {
   constructor(private router: Router) {}
 
-  public canActivate(
+  canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> {
