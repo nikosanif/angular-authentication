@@ -9,16 +9,21 @@ import { HttpInterceptor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError } from 'rxjs/operators';
 
+import { AuthFacade } from '../store/auth.facade';
+import { TokenStorageService } from '../../core/services';
+
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor() {}
+  constructor(
+    private authFacade: AuthFacade,
+    private tokenStorageService: TokenStorageService
+  ) {}
 
   intercept(
     req: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    // TODO: get token from local storage service
-    const accessToken = 'this-is-random-access-token';
+    const accessToken = this.tokenStorageService.getAccessToken();
 
     if (accessToken) {
       req = req.clone({ setHeaders: { Authorization: `Bearer ${accessToken}` } });
@@ -46,7 +51,7 @@ export class AuthInterceptor implements HttpInterceptor {
   }
 
   private handle401() {
-    // TODO: perform logout action
+    this.authFacade.logout();
     return EMPTY;
   }
 }

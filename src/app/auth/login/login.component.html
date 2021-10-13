@@ -1,7 +1,7 @@
 <div class="aa--container">
   <h1>Login</h1>
 
-  <form [formGroup]="loginForm">
+  <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
     <div class="tui-form__row">
       <tui-input formControlName="username">
         Email <span class="tui-required"></span>
@@ -16,7 +16,15 @@
     </div>
 
     <div class="tui-form__buttons">
-      <button tuiButton class="tui-form__button" size="m" type="submit">Submit</button>
+      <button
+        tuiButton
+        [showLoader]="(isLoading$ | async)!"
+        class="tui-form__button"
+        size="m"
+        type="submit"
+      >
+        Submit
+      </button>
     </div>
   </form>
 </div>
