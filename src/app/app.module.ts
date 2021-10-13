@@ -4,15 +4,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app/app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    // Angular
     BrowserModule,
-    TuiRootModule,
     BrowserAnimationsModule,
+
+    // Taiga UI
+    TuiRootModule,
     TuiDialogModule,
     TuiNotificationsModule,
+
+    // Core
+    CoreModule,
+
+    // Routing
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
