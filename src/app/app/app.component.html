@@ -1,3 +1,14 @@
 <tui-root>
-  <router-outlet></router-outlet>
+  <header>
+    <!-- BEGIN: Title -->
+    <a routerLink="/home" class="aa--flex aa--items-center">
+      <img src="/assets/logo.svg" class="logo-icon" />
+      <h1>Angular Authentication</h1>
+    </a>
+    <!-- END: Title -->
+  </header>
+
+  <div class="main-content">
+    <router-outlet></router-outlet>
+  </div>
 </tui-root>

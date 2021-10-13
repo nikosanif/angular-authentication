@@ -1,5 +1,5 @@
 module.exports = {
-  prefix: 'aa-',
+  prefix: 'aa--',
   important: true,
   mode: process.env.TAILWIND_MODE ? 'jit' : '',
   purge: {
