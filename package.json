@@ -5,7 +5,7 @@
     "postinstall": "husky install",
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "NODE_ENV=production ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
@@ -35,6 +35,7 @@
     "@taiga-ui/icons": "^2.19.0",
     "@taiga-ui/kit": "^2.19.0",
     "rxjs": "~6.6.0",
+    "tailwindcss": "^2.2.16",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
   },
