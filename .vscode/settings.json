@@ -3,6 +3,9 @@
   "editor.rulers": [90],
   "editor.formatOnSave": true,
 
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.quoteStyle": "single",
+
   "workbench.iconTheme": "material-icon-theme",
 
   "workbench.colorCustomizations": {
