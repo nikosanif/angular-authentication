@@ -1,35 +1,27 @@
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, finalize, map, switchMap, tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
+import { catchError, finalize, map, switchMap, tap } from 'rxjs/operators';
 
-import * as AuthActions from './auth.actions';
-import { AuthService } from '../auth.service';
 import { TokenStorageService } from '../../core/services';
+import { AuthService } from '../auth.service';
+import * as AuthActions from './auth.actions';
 
 @Injectable()
 export class AuthEffects {
-  constructor(
-    private router: Router,
-    private actions$: Actions,
-    private authService: AuthService,
-    private activatedRoute: ActivatedRoute,
-    private tokenStorageService: TokenStorageService
-  ) {}
-
   login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.loginRequest),
-      switchMap((credentials) =>
+      switchMap(credentials =>
         this.authService.login(credentials.username, credentials.password).pipe(
-          map((data) => {
+          map(data => {
             // save tokens
             this.tokenStorageService.saveTokens(data.access_token, data.refresh_token);
             // trigger login success action
             return AuthActions.loginSuccess();
           }),
-          catchError((e) => of(AuthActions.loginFailure(e)))
+          catchError(e => of(AuthActions.loginFailure(e)))
         )
       )
     );
@@ -41,7 +33,7 @@ export class AuthEffects {
       map(() => {
         // redirect to return url or home
         this.router.navigateByUrl(
-          this.activatedRoute.snapshot.queryParams['returnUrl'] || '/'
+          this.activatedRoute.snapshot.queryParams.returnUrl || '/'
         );
         return AuthActions.getAuthUserRequest();
       })
@@ -68,7 +60,7 @@ export class AuthEffects {
       ofType(AuthActions.refreshTokenSuccess, AuthActions.getAuthUserRequest),
       switchMap(() =>
         this.authService.getAuthUser().pipe(
-          map((user) => AuthActions.getAuthUserSuccess({ user })),
+          map(user => AuthActions.getAuthUserSuccess({ user })),
           catchError(() => of(AuthActions.getAuthUserFailure()))
         )
       )
@@ -80,7 +72,7 @@ export class AuthEffects {
       ofType(AuthActions.refreshTokenRequest),
       switchMap(() =>
         this.authService.refreshToken().pipe(
-          map((data) => {
+          map(data => {
             // save tokens
             this.tokenStorageService.saveTokens(data.access_token, data.refresh_token);
             // trigger refresh token success action
@@ -103,4 +95,12 @@ export class AuthEffects {
     },
     { dispatch: false }
   );
+
+  constructor(
+    private router: Router,
+    private actions$: Actions,
+    private authService: AuthService,
+    private activatedRoute: ActivatedRoute,
+    private tokenStorageService: TokenStorageService
+  ) {}
 }

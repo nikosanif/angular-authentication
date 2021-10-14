@@ -1,14 +1,13 @@
-import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable, throwError } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
 
 import { ConfigService, TokenStorageService } from '../core/services';
-
 import * as AuthActions from './store/auth.actions';
-import * as AuthSelectors from './store/auth.selectors';
 import { AuthState, AuthUser, TokenStatus } from './store/auth.models';
+import * as AuthSelectors from './store/auth.selectors';
 
 export interface AccessData {
   token_type: 'Bearer';
@@ -46,7 +45,7 @@ export class AuthService {
 
     const authState$ = this.store.select(AuthSelectors.selectAuth).pipe(
       filter(
-        (auth) =>
+        auth =>
           auth.refreshTokenStatus === TokenStatus.INVALID ||
           (auth.refreshTokenStatus === TokenStatus.VALID && !!auth.user)
       ),

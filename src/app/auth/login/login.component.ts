@@ -1,5 +1,5 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { AuthFacade } from '../store/auth.facade';
 
@@ -17,8 +17,8 @@ export class LoginComponent {
       validators: [Validators.required],
     }),
   });
-  public isLoading$ = this.authFacade.isLoadingLogin$;
-  public showLoginError$ = this.authFacade.hasLoginError$;
+  isLoading$ = this.authFacade.isLoadingLogin$;
+  showLoginError$ = this.authFacade.hasLoginError$;
 
   constructor(private authFacade: AuthFacade) {}
 

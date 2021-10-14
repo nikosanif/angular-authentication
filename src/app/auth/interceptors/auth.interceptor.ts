@@ -1,4 +1,3 @@
-import { EMPTY, Observable, throwError } from 'rxjs';
 import {
   HttpErrorResponse,
   HttpEvent,
@@ -7,10 +6,11 @@ import {
 } from '@angular/common/http';
 import { HttpInterceptor } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { EMPTY, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { AuthFacade } from '../store/auth.facade';
 import { TokenStorageService } from '../../core/services';
+import { AuthFacade } from '../store/auth.facade';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -29,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
       req = req.clone({ setHeaders: { Authorization: `Bearer ${accessToken}` } });
     }
 
-    return next.handle(req).pipe((s) => this.handleErrors(s, req.url));
+    return next.handle(req).pipe(s => this.handleErrors(s, req.url));
   }
 
   private handleErrors(

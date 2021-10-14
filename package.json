@@ -48,6 +48,7 @@
     "@angular-eslint/template-parser": "12.3.1",
     "@angular/cli": "~12.2.9",
     "@angular/compiler-cli": "~12.2.9",
+    "@babel/eslint-plugin": "^7.14.5",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@types/jasmine": "~3.8.0",
@@ -55,6 +56,8 @@
     "@typescript-eslint/eslint-plugin": "4.28.2",
     "@typescript-eslint/parser": "4.28.2",
     "eslint": "^7.26.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-ngrx": "^1.0.0",
     "husky": "^7.0.1",
     "jasmine-core": "~3.8.0",
     "karma": "~6.3.0",
@@ -65,7 +68,6 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "standard-version": "^9.3.1",
-    "typescript": "~4.3.5",
-    "eslint-plugin-ngrx": "^1.0.0"
+    "typescript": "~4.3.5"
   }
 }

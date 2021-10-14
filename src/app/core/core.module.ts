@@ -1,14 +1,14 @@
-import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { StoreModule } from '@ngrx/store';
+import { NgModule, Optional, SkipSelf } from '@angular/core';
+import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
+import { environment } from '../../environments/environment';
 import { AuthModule } from '../auth/auth.module';
 import { authInterceptorProviders } from '../auth/interceptors';
-import { environment } from '../../environments/environment';
 
 @NgModule({
   imports: [
@@ -33,11 +33,7 @@ import { environment } from '../../environments/environment';
   ],
 })
 export class CoreModule {
-  constructor(
-    @Optional()
-    @SkipSelf()
-    parentModule: CoreModule
-  ) {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error('CoreModule is already loaded. Import only once in AppModule');
     }
