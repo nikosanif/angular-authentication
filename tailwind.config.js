@@ -12,6 +12,11 @@ module.exports = {
       container: {
         center: true,
       },
+      colors: {
+        primary: '#04c8c8',
+        secondary: '#e8f6f6',
+        link: '#069c9c',
+      },
     },
   },
   variants: {

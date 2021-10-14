@@ -1,3 +1,20 @@
+// Extend Taiga UI Theme
+:root {
+  // Primary
+  --tui-primary: #04c8c8;
+  --tui-primary-hover: #05b6b6;
+  --tui-primary-active: #05b6b6;
+
+  // Secondary
+  --tui-secondary: #e8f6f6;
+  --tui-secondary-hover: #cff8f8;
+  --tui-secondary-active: #cff8f8;
+
+  // Link
+  --tui-link: #069c9c;
+  --tui-link-hover: #058d8d;
+}
+
 header {
   box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%);
   position: fixed;
@@ -6,19 +23,26 @@ header {
   right: 0;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 4rem;
   padding: 0 1.25rem;
-  background: var(--tui-base-01);
-  border-bottom: 1px solid var(--tui-base-03);
+  border-bottom: 1px solid #ededed;
   z-index: 1;
+  @apply aa--bg-white;
 
   .logo-icon {
     height: 50px;
-    margin-right: 10px;
+    margin-right: 5px;
+  }
+
+  .menu-items {
+    > a {
+      @apply aa--mx-1;
+    }
   }
 }
 
-.main-content {
+main {
   position: relative;
   z-index: 0;
   padding-top: 4rem;

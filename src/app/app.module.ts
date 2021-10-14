@@ -4,10 +4,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   TuiButtonModule,
   TuiDialogModule,
-  TuiLinkModule,
   TuiNotificationsModule,
   TuiRootModule,
+  TuiHostedDropdownModule,
+  TuiDataListModule,
+  TuiSvgModule,
 } from '@taiga-ui/core';
+import { TuiAvatarModule } from '@taiga-ui/kit';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
@@ -24,8 +27,11 @@ import { CoreModule } from './core/core.module';
     TuiRootModule,
     TuiDialogModule,
     TuiNotificationsModule,
-    TuiLinkModule,
     TuiButtonModule,
+    TuiHostedDropdownModule,
+    TuiDataListModule,
+    TuiAvatarModule,
+    TuiSvgModule,
 
     // Core
     CoreModule,
