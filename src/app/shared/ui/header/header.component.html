@@ -21,30 +21,48 @@
     </div>
   </div>
 
-  <div *ngIf="authUser$ | async as user; else login">
-    <tui-hosted-dropdown tuiDropdownAlign="left" [content]="userDropdown">
-      <tui-avatar
-        [text]="user.firstName + ' ' + user.lastName"
-        class="aa--cursor-pointer"
-      ></tui-avatar>
-    </tui-hosted-dropdown>
-    <ng-template #userDropdown>
-      <tui-data-list role="menu">
-        <tui-opt-group [label]="user.firstName + ' ' + user.lastName">
-          <button tuiOption (click)="logout()">
-            <span>
-              <tui-svg class="aa--mr-2" src="tuiIconLogoutLarge"></tui-svg>
-              Logout
-            </span>
-          </button>
-        </tui-opt-group>
-      </tui-data-list>
-    </ng-template>
-  </div>
+  <div class="aa--flex aa--items-center">
+    <div *ngIf="authUser$ | async as user; else login">
+      <tui-hosted-dropdown tuiDropdownAlign="left" [content]="userDropdown">
+        <tui-avatar
+          [text]="user.firstName + ' ' + user.lastName"
+          class="aa--cursor-pointer"
+        ></tui-avatar>
+      </tui-hosted-dropdown>
+      <ng-template #userDropdown>
+        <tui-data-list role="menu">
+          <tui-opt-group [label]="user.firstName + ' ' + user.lastName">
+            <button tuiOption (click)="logout()">
+              <span>
+                <tui-svg class="aa--mr-2" src="tuiIconLogoutLarge"></tui-svg>
+                Logout
+              </span>
+            </button>
+          </tui-opt-group>
+        </tui-data-list>
+      </ng-template>
+    </div>
 
-  <ng-template #login>
-    <a tuiButton size="m" routerLink="/login" [appearance]="'outline'" icon="tuiIconUser">
-      Login
+    <ng-template #login>
+      <a
+        tuiButton
+        size="m"
+        routerLink="/login"
+        [appearance]="'outline'"
+        icon="tuiIconUser"
+      >
+        Login
+      </a>
+    </ng-template>
+
+    <a
+      href="https://github.com/nikosanif/angular-authentication"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="aa--ml-4 aa--text-2xl"
+      [tuiHint]="'Source code'"
+    >
+      <fa-icon [icon]="['fab', 'github']"></fa-icon>
     </a>
-  </ng-template>
+  </div>
 </header>
