@@ -15,6 +15,10 @@ header {
 }
 
 .menu-items {
+  border-left: 1px solid #dedede;
+  margin-left: 24px;
+  padding-left: 24px;
+
   > a {
     @apply aa--mx-1;
   }
