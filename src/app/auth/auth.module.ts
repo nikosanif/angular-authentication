@@ -4,7 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
-import { TuiButtonModule } from '@taiga-ui/core';
+import { TuiButtonModule, TuiNotificationModule } from '@taiga-ui/core';
 import {
   TuiFieldErrorModule,
   TuiInputModule,
@@ -34,6 +34,7 @@ const routes: Routes = [
     TuiFieldErrorModule,
     TuiInputModule,
     TuiInputPasswordModule,
+    TuiNotificationModule,
     RouterModule.forChild(routes),
     StoreModule.forFeature(AUTH_FEATURE_KEY, authReducer),
     EffectsModule.forFeature([AuthEffects]),

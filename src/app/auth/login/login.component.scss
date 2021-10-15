@@ -1,0 +1,8 @@
+.form-wrapper {
+  @apply aa--mt-10 aa--w-10/12 md:aa--w-1/2;
+
+  form {
+    box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%);
+    @apply aa--p-8 aa--mt-4 aa--rounded-lg;
+  }
+}
