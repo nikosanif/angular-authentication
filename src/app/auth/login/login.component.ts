@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { GreetingUtil } from '../../shared/util';
 import { AuthFacade } from '../store/auth.facade';
 
 @Component({
@@ -10,7 +9,6 @@ import { AuthFacade } from '../store/auth.facade';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  readonly greeting = GreetingUtil.greet();
   readonly loginForm = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],

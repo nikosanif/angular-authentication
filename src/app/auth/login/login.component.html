@@ -1,16 +1,11 @@
 <div class="aa--container aa--flex aa--justify-center">
   <div class="form-wrapper">
-    <div class="aa--text-primary">
-      <span class="aa--text-2xl">Hello!</span><br />
-      <span class="aa--text-3xl aa--font-semibold">{{ greeting }}</span>
-    </div>
+    <h1 class="aa--mb-8">
+      <span class="aa--text-primary aa--font-semibold">Login</span>
+      your account
+    </h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
-      <h1 class="aa--mb-8">
-        <span class="aa--text-primary aa--font-semibold">Login</span>
-        your account
-      </h1>
-
       <div class="tui-form__row">
         <tui-input formControlName="username">
           Username <span class="tui-required"></span>
