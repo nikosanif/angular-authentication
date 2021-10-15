@@ -1,17 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {
-  TuiButtonModule,
-  TuiDialogModule,
-  TuiNotificationsModule,
-  TuiRootModule,
-  TuiHostedDropdownModule,
-  TuiDataListModule,
-  TuiSvgModule,
-} from '@taiga-ui/core';
-import { TuiAvatarModule } from '@taiga-ui/kit';
+import { TuiDialogModule, TuiNotificationsModule, TuiRootModule } from '@taiga-ui/core';
 
+import { HeaderModule } from '../shared/ui/header/header.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app/app.component';
 import { CoreModule } from './core/core.module';
@@ -27,17 +19,13 @@ import { CoreModule } from './core/core.module';
     TuiRootModule,
     TuiDialogModule,
     TuiNotificationsModule,
-    TuiButtonModule,
-    TuiHostedDropdownModule,
-    TuiDataListModule,
-    TuiAvatarModule,
-    TuiSvgModule,
 
     // Core
     CoreModule,
 
-    // Routing
+    // Application
     AppRoutingModule,
+    HeaderModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,45 @@
+<header>
+  <div class="aa--flex aa--items-center">
+    <a routerLink="/home" class="aa--flex aa--items-center aa--mr-2">
+      <img src="/assets/logo.svg" class="logo-icon" />
+      <span class="aa--text-xl aa--font-semibold"> Angular Authentication </span>
+    </a>
+
+    <div class="menu-items">
+      <a
+        *ngFor="let item of menuItems"
+        tuiButton
+        size="m"
+        [routerLink]="item.link"
+        routerLinkActive="active"
+        #rla="routerLinkActive"
+        [appearance]="rla.isActive ? 'primary' : 'flat'"
+      >
+        {{ item.label }}
+      </a>
+    </div>
+  </div>
+
+  <div *ngIf="authUser$ | async as user; else login">
+    <tui-hosted-dropdown tuiDropdownAlign="left" [content]="userDropdown">
+      <tui-avatar [text]="user.firstName + ' ' + user.lastName"></tui-avatar>
+    </tui-hosted-dropdown>
+    <ng-template #userDropdown>
+      <tui-data-list role="menu">
+        <tui-opt-group [label]="user.firstName + ' ' + user.lastName">
+          <button tuiOption (click)="logout()">
+            <span>
+              <tui-svg class="aa--mr-2" src="tuiIconLogoutLarge"></tui-svg>
+              Logout
+            </span>
+          </button>
+        </tui-opt-group>
+      </tui-data-list>
+    </ng-template>
+  </div>
+  <ng-template #login>
+    <a tuiButton size="m" routerLink="/login" [appearance]="'primary'" icon="tuiIconUser">
+      Login
+    </a>
+  </ng-template>
+</header>

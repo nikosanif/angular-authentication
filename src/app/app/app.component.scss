@@ -15,31 +15,12 @@
   --tui-link-hover: #058d8d;
 }
 
-header {
-  box-shadow: 0 0.125rem 1rem rgb(0 0 0 / 8%);
+aa-header {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 4rem;
-  padding: 0 1.25rem;
-  border-bottom: 1px solid #ededed;
   z-index: 1;
-  @apply aa--bg-white;
-
-  .logo-icon {
-    height: 50px;
-    margin-right: 5px;
-  }
-
-  .menu-items {
-    > a {
-      @apply aa--mx-1;
-    }
-  }
 }
 
 main {
