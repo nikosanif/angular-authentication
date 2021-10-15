@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, finalize, map, switchMap, tap } from 'rxjs/operators';
+import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
 
 import { TokenStorageService } from '../../core/services';
 import { AuthService } from '../auth.service';
@@ -13,7 +13,7 @@ export class AuthEffects {
   login$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.loginRequest),
-      switchMap(credentials =>
+      exhaustMap(credentials =>
         this.authService.login(credentials.username, credentials.password).pipe(
           map(data => {
             // save tokens
@@ -21,7 +21,7 @@ export class AuthEffects {
             // trigger login success action
             return AuthActions.loginSuccess();
           }),
-          catchError(e => of(AuthActions.loginFailure(e)))
+          catchError(error => of(AuthActions.loginFailure({ error })))
         )
       )
     );
@@ -44,7 +44,7 @@ export class AuthEffects {
     () => {
       return this.actions$.pipe(
         ofType(AuthActions.logout),
-        switchMap(() => {
+        exhaustMap(() => {
           this.router.navigateByUrl('/');
           return this.authService
             .logout()
@@ -58,7 +58,7 @@ export class AuthEffects {
   getUser$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.refreshTokenSuccess, AuthActions.getAuthUserRequest),
-      switchMap(() =>
+      exhaustMap(() =>
         this.authService.getAuthUser().pipe(
           map(user => AuthActions.getAuthUserSuccess({ user })),
           catchError(() => of(AuthActions.getAuthUserFailure()))
@@ -70,7 +70,7 @@ export class AuthEffects {
   refreshToken$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(AuthActions.refreshTokenRequest),
-      switchMap(() =>
+      exhaustMap(() =>
         this.authService.refreshToken().pipe(
           map(data => {
             // save tokens
