@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { AuthFacade } from '../../../app/auth/store/auth.facade';
+import { AuthFacade } from '../../../auth/store/auth.facade';
 
 @Component({
   selector: 'aa-header',
