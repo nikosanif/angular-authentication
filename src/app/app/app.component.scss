@@ -15,16 +15,36 @@
   --tui-link-hover: #058d8d;
 }
 
-aa-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
+.content {
+  height: 100%;
+  width: 100%;
 
-main {
-  position: relative;
-  z-index: 0;
-  padding-top: 4rem;
+  aa-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  .main-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    main {
+      background-color: #f4f3f7;
+      position: relative;
+      z-index: 0;
+      margin-top: 4rem;
+      flex: 1 0 auto;
+      overflow: hidden;
+      padding-bottom: 10px;
+    }
+
+    aa-footer {
+      flex: 0 0 auto;
+    }
+  }
 }
