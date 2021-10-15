@@ -22,7 +22,10 @@
 
   <div *ngIf="authUser$ | async as user; else login">
     <tui-hosted-dropdown tuiDropdownAlign="left" [content]="userDropdown">
-      <tui-avatar [text]="user.firstName + ' ' + user.lastName"></tui-avatar>
+      <tui-avatar
+        [text]="user.firstName + ' ' + user.lastName"
+        class="aa--cursor-pointer"
+      ></tui-avatar>
     </tui-hosted-dropdown>
     <ng-template #userDropdown>
       <tui-data-list role="menu">
@@ -37,8 +40,9 @@
       </tui-data-list>
     </ng-template>
   </div>
+
   <ng-template #login>
-    <a tuiButton size="m" routerLink="/login" [appearance]="'primary'" icon="tuiIconUser">
+    <a tuiButton size="m" routerLink="/login" [appearance]="'outline'" icon="tuiIconUser">
       Login
     </a>
   </ng-template>
