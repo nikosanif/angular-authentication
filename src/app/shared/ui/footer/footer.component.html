@@ -1,1 +1,42 @@
-<p>footer works!</p>
+<footer class="aa--flex aa--justify-between aa--items-center">
+  <p class="aa--font-semibold">© {{ now | date: 'YYYY' }} - Nikos Anifantis</p>
+
+  <div class="links">
+    <a
+      tuiLink
+      href="https://github.com/nikosanif"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <fa-icon [icon]="['fab', 'github']"></fa-icon>
+      <span>Github</span>
+    </a>
+    <a
+      tuiLink
+      href="https://nikosanif.medium.com/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <fa-icon [icon]="['fab', 'medium-m']"></fa-icon>
+      <span>Medium</span>
+    </a>
+    <a
+      tuiLink
+      href="https://twitter.com/nikosanif"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
+      <span>Twitter</span>
+    </a>
+    <a
+      tuiLink
+      href="https://www.linkedin.com/in/nikosanifantis/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
+      <span>Twitter</span>
+    </a>
+  </div>
+</footer>

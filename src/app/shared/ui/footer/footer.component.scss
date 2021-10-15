@@ -1,0 +1,23 @@
+footer {
+  @apply aa--p-3
+  aa--border-t-4
+  aa--border-secondary;
+
+  .links {
+    a {
+      padding: 10px 5px;
+      display: inline-block;
+
+      fa-icon {
+        font-size: 20px;
+        width: 25px;
+      }
+
+      span {
+        font-size: 14px;
+        padding: 0 0 0 3px;
+        @apply aa--hidden md:aa--inline;
+      }
+    }
+  }
+}
