@@ -1,1 +1,81 @@
-<h1>Home</h1>
+<!-- BEGIN: Main banner -->
+<section>
+  <div class="aa--grid aa--grid-cols-1 md:aa--grid-cols-2 aa--gap-4">
+    <!-- Left -->
+    <div
+      class="aa--flex aa--flex-col aa--justify-center aa--text-center md:aa--text-left"
+    >
+      <h1>Angular <span class="aa--text-primary">Authentication</span></h1>
+      <p class="aa--py-5 lg:aa--py-3 aa--text-2xl">
+        An <span class="aa--text-primary">Angular</span> application that demonstrates
+        best practices for <span class="aa--text-primary">user authentication</span> flow.
+      </p>
+      <div class="aa--mt-4">
+        <a
+          tuiButton
+          [appearance]="'primary'"
+          href="https://github.com/nikosanif/angular-authentication"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Source Code
+          <fa-icon [icon]="['fab', 'github']" class="aa--ml-2"></fa-icon>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right -->
+    <div class="aa--grid aa--place-items-center">
+      <img src="/assets/security.svg" class="aa--w-2/3" alt="Angular Authentication" />
+    </div>
+  </div>
+</section>
+<!-- END: Main banner -->
+
+<!-- BEGIN: Features -->
+<section>
+  <h2 class="aa--text-center">Features</h2>
+  <p class="subtitle aa--text-center">
+    This repository uses state-of-the-art features for web development.
+  </p>
+
+  <div class="aa--grid aa--grid-cols-1 md:aa--grid-cols-3 lg:aa--grid-cols-4 aa--gap-8">
+    <div *ngFor="let feature of features" class="card">
+      <div class="card-header">
+        <div class="card-icon aa--bg-primary aa--text-white">
+          {{ feature.name | slice: 0:1 }}
+        </div>
+        <div class="card-title">{{ feature.name }}</div>
+      </div>
+      <div class="card-content">
+        <p class="aa--text-gray-600">{{ feature.description }}</p>
+
+        <div class="aa--flex aa--text-lg aa--mt-6">
+          <a
+            *ngIf="feature.github"
+            tuiLink
+            tuiHint="Github"
+            [href]="feature.github"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="aa--mr-4"
+          >
+            <fa-icon [icon]="['fab', 'github']"></fa-icon>
+          </a>
+          <a
+            *ngIf="feature.docs"
+            tuiLink
+            [href]="feature.docs"
+            tuiHint="Documentation"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="aa--mr-4"
+          >
+            <fa-icon icon="book"></fa-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END: Features -->
