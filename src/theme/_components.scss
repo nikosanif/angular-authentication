@@ -1,0 +1,30 @@
+.card {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+
+  .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+
+    .card-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 100%;
+      font-size: 1.4rem;
+      font-weight: 600;
+      background-color: #dedede;
+    }
+
+    .card-title {
+      margin-left: 12px;
+      font-size: 24px;
+      line-height: 28px;
+    }
+  }
+}
