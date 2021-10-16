@@ -1,7 +1,11 @@
-<footer class="aa--flex aa--justify-between aa--items-center">
-  <p class="aa--font-semibold">© {{ now | date: 'YYYY' }} - Nikos Anifantis</p>
+<footer class="aa--grid aa--grid-cols-1 md:aa--grid-cols-2 aa--gap-4">
+  <div class="aa--text-center md:aa--text-left">
+    <p class="aa--font-semibold">© {{ now | date: 'YYYY' }} - Nikos Anifantis</p>
+    <!-- TODO: show app version -->
+    <p>Version: 0.0.0</p>
+  </div>
 
-  <div class="links">
+  <div class="aa--text-center md:aa--text-right links">
     <a
       tuiLink
       href="https://github.com/nikosanif"
@@ -36,7 +40,7 @@
       rel="noopener noreferrer"
     >
       <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
-      <span>Twitter</span>
+      <span>LinkedIn</span>
     </a>
   </div>
 </footer>
