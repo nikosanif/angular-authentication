@@ -14,6 +14,13 @@ export class ConfigService {
   }
 
   /**
+   * Returns app's version
+   */
+  getVersion(): string {
+    return environment.appVersion;
+  }
+
+  /**
    * Returns the server's host url
    */
   getAPIUrl(): string {

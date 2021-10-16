@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { ConfigService } from '../../../core/services';
+
 @Component({
   selector: 'aa-footer',
   templateUrl: './footer.component.html',
@@ -7,6 +9,7 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
   readonly now = new Date();
+  readonly version = this.configService.getVersion();
 
-  constructor() {}
+  constructor(private configService: ConfigService) {}
 }
