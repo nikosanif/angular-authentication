@@ -13,9 +13,9 @@ module.exports = {
         center: true,
       },
       colors: {
-        primary: '#04c8c8',
-        secondary: '#e8f6f6',
-        link: '#069c9c',
+        primary: '#5b0fff',
+        secondary: '#e8e1f7',
+        accent: '#0dbfa9',
       },
     },
   },
