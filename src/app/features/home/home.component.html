@@ -42,9 +42,13 @@
   <div class="aa--grid aa--grid-cols-1 md:aa--grid-cols-3 lg:aa--grid-cols-4 aa--gap-8">
     <div *ngFor="let feature of features" class="card">
       <div class="card-header">
-        <div class="card-icon aa--bg-primary aa--text-white">
-          {{ feature.name | slice: 0:1 }}
-        </div>
+        <tui-avatar
+          [text]="feature.name"
+          [autoColor]="true"
+          size="s"
+          [rounded]="true"
+          class="aa--mr-2"
+        ></tui-avatar>
         <div class="card-title">{{ feature.name }}</div>
       </div>
       <div class="card-content">
