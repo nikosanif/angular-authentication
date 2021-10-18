@@ -52,6 +52,17 @@
 
         <div class="aa--flex aa--text-lg aa--mt-6">
           <a
+            *ngIf="feature.link"
+            tuiLink
+            tuiHint="Link"
+            [href]="feature.link"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="aa--mr-4"
+          >
+            <fa-icon icon="link"></fa-icon>
+          </a>
+          <a
             *ngIf="feature.github"
             tuiLink
             tuiHint="Github"
@@ -76,6 +87,12 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="aa--flex aa--justify-center aa--mt-6">
+    <button tuiButton appearance="outline" (click)="showAllFeatures = !showAllFeatures">
+      Show {{ showAllFeatures ? 'less' : 'more' }}
+    </button>
   </div>
 </section>
 <!-- END: Features -->

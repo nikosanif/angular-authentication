@@ -8,7 +8,7 @@ import {
   faTwitter,
   faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
-import { faBook } from '@fortawesome/free-solid-svg-icons';
+import { faBook, faLink } from '@fortawesome/free-solid-svg-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -52,6 +52,6 @@ export class CoreModule {
       throw new Error('CoreModule is already loaded. Import only once in AppModule');
     }
 
-    faIconLibrary.addIcons(faGithub, faMediumM, faTwitter, faLinkedinIn, faBook);
+    faIconLibrary.addIcons(faGithub, faMediumM, faTwitter, faLinkedinIn, faBook, faLink);
   }
 }
