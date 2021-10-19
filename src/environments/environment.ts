@@ -7,7 +7,8 @@ const { version } = require('../../package.json');
 export const environment = {
   production: false,
   appVersion: `${version}-dev`,
-  apiUrl: '<Your auth server API URL here>',
+  // TODO: explain why it's empty
+  apiUrl: '', // <Your auth server API URL here>
   settings: {
     auth: {
       clientId: '<Your auth client id here>',
