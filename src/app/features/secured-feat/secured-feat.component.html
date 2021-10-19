@@ -1,1 +1,8 @@
-<h1>Secured Feature</h1>
+<ng-container *ngrxLet="user$ as user">
+  <h1>
+    {{ greeting }},
+    <span class="aa--text-primary"> {{ user?.firstName }} {{ user?.lastName }}</span>
+  </h1>
+
+  <p class="aa--text-xl">Shhh... 🤫 - This is a top secret feature!</p>
+</ng-container>
