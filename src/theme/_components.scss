@@ -1,3 +1,4 @@
+// Card styles
 .card {
   border-radius: 8px;
   padding: 20px;
@@ -27,4 +28,11 @@
       line-height: 28px;
     }
   }
+}
+
+// Section styles
+section {
+  @apply aa--mt-4
+    aa--mb-12
+    lg:aa--mb-16;
 }

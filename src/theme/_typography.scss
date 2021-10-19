@@ -1,0 +1,17 @@
+h1 {
+  font-size: 1.875rem !important;
+  line-height: 2.25rem !important;
+  font-weight: 600 !important;
+}
+
+h2 {
+  font-size: 1.5rem !important;
+  line-height: 2rem !important;
+  font-weight: 600 !important;
+}
+
+.subtitle {
+  @apply aa--mt-3
+    aa--mb-8
+    md:aa--text-lg;
+}
