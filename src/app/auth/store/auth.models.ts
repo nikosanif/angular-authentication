@@ -14,9 +14,8 @@ export interface AuthState {
   hasLoginError: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface AuthUser {
-  // TODO: fill in properties
+  id: number;
   firstName: string;
   lastName: string;
 }

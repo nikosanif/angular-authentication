@@ -26,7 +26,11 @@ export class AuthInterceptor implements HttpInterceptor {
     const accessToken = this.tokenStorageService.getAccessToken();
 
     if (accessToken) {
-      req = req.clone({ setHeaders: { Authorization: `Bearer ${accessToken}` } });
+      req = req.clone({
+        setHeaders: { Authorization: `Bearer ${accessToken}` },
+        // !Attention: it used only at Fake API, remove it in real app
+        params: req.params.set('auth-token', accessToken),
+      });
     }
 
     return next.handle(req).pipe(s => this.handleErrors(s, req.url));
