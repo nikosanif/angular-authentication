@@ -6,6 +6,14 @@
     </h1>
 
     <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
+      <tui-notification status="info">
+        Use account <b>admin</b> and password <b>demo</b> to continue.
+      </tui-notification>
+
+      <tui-notification *ngIf="showLoginError$ | async" status="error" class="aa--mt-4">
+        Ooops! The login details are incorrect.
+      </tui-notification>
+
       <div class="tui-form__row">
         <tui-input formControlName="username">
           Username <span class="tui-required"></span>
@@ -30,10 +38,6 @@
           Login
         </button>
       </div>
-
-      <tui-notification *ngIf="showLoginError$ | async" status="error" class="aa--mt-4">
-        Ooops! Something went wrong...
-      </tui-notification>
     </form>
   </div>
 </div>
