@@ -1,10 +1,10 @@
 export const USERS = [
   {
     id: 1,
-    firstName: 'System',
-    lastName: 'Admin',
+    firstName: 'Admin',
+    lastName: 'Demo',
     username: 'admin',
-    password: 'admin',
+    password: 'demo',
     accessToken: 'valid-jwt-access-token-1',
     refreshToken: 'valid-jwt-refresh-token-1',
   },
