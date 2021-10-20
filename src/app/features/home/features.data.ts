@@ -36,13 +36,6 @@ export const features: Feature[] = [
     docs: 'https://taiga-ui.dev/getting-started',
   },
   {
-    name: 'Font Awesome 5',
-    description: 'Icons and typefaces in a single place.',
-    link: 'https://fontawesome.com/',
-    github: 'https://github.com/FortAwesome/angular-fontawesome',
-    docs: null,
-  },
-  {
     name: 'Tailwindcss',
     description: 'A utility-first CSS framework for rapid UI development.',
     link: 'https://tailwindcss.com/',
@@ -57,6 +50,20 @@ export const features: Feature[] = [
     docs: 'https://angular.io/guide/router#lazy-loading-route-configuration',
   },
   {
+    name: 'Font Awesome 5',
+    description: 'Icons and typefaces in a single place.',
+    link: 'https://fontawesome.com/',
+    github: 'https://github.com/FortAwesome/angular-fontawesome',
+    docs: null,
+  },
+  {
+    name: 'Responsive',
+    description: 'Responsive web design using many different devices.',
+    link: 'https://www.w3schools.com/css/css_rwd_intro.asp',
+    github: null,
+    docs: null,
+  },
+  {
     name: 'ESLint',
     description: 'A utility-first CSS framework for rapid UI development.',
     link: 'https://eslint.org/',
@@ -69,6 +76,14 @@ export const features: Feature[] = [
     link: 'https://prettier.io/',
     github: 'https://github.com/prettier/prettier',
     docs: 'https://prettier.io/docs/en/index.html',
+  },
+  {
+    name: 'In-memory Web API',
+    description: 'An in-memory web API for Angular demos and tests.',
+    link: null,
+    github:
+      'https://github.com/angular/angular/tree/master/packages/misc/angular-in-memory-web-api',
+    docs: 'https://angular.io/tutorial/toh-pt6',
   },
   {
     name: 'Lint Staged',
