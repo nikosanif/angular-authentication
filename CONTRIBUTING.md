@@ -19,7 +19,7 @@ Even better, you can [submit a PR](#submit-pr) with the fix or the new feature d
 
 Before you submit an issue, please search the issue tracker, maybe an issue for your problem already exists and the discussion might inform you of workarounds readily available.
 
-You can submit a new issue [here](https://github.com/nikosanif/angular-authentication/issues/new).
+You can submit a new issue [here](https://github.com/nikosanif/angular-authentication/issues/new/choose).
 
 ### <a name="submit-pr"></a> Submitting a Pull Request (PR)
 
