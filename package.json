@@ -11,9 +11,7 @@
     "lint": "ng lint",
     "format:check": "prettier --list-different \"src/**/*.{ts,js,json,css,scss,html}\"",
     "format:write": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
-    "release": "standard-version --release-as major",
-    "release:minor": "standard-version --release-as minor",
-    "release:patch": "standard-version --release-as patch"
+    "release": "standard-version"
   },
   "private": true,
   "dependencies": {
