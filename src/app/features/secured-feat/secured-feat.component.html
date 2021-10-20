@@ -1,8 +1,51 @@
-<ng-container *ngrxLet="user$ as user">
+<section *ngrxLet="user$ as user">
   <h1>
     {{ greeting }},
-    <span class="aa--text-primary"> {{ user?.firstName }} {{ user?.lastName }}</span>
+    <span class="aa--text-primary">{{ user?.firstName }} {{ user?.lastName }}</span>
   </h1>
 
-  <p class="aa--text-xl">Shhh... 🤫 - This is a top secret feature!</p>
-</ng-container>
+  <p class="aa--text-xl">
+    Shhh... 🤫 - This is a <span class="aa--text-primary">top secret</span> feature!
+  </p>
+</section>
+
+<section>
+  <h2 class="aa--mb-4">Users</h2>
+
+  <div class="card">
+    <tui-notification class="aa--mb-4" status="warning">
+      Note that we expose users' credentials for <b>demonstration purposes</b> only! Feel
+      free to logout and login again using one of the following accounts.
+    </tui-notification>
+
+    <table class="tui-table">
+      <tbody>
+        <tr class="tui-table__tr">
+          <th class="tui-table__th">ID</th>
+          <th class="tui-table__th">Full Name</th>
+          <th class="tui-table__th">Username</th>
+          <th class="tui-table__th">Password</th>
+        </tr>
+        <tr *ngFor="let user of users" class="tui-table__tr">
+          <td class="tui-table__td">{{ user.id }}</td>
+          <td class="tui-table__td">
+            {{ user.firstName }} {{ user.lastName }}
+            <tui-badge
+              *ngIf="(user$ | async)?.id === user.id"
+              class="md:aa--ml-2"
+              size="s"
+              status="success"
+              value="Logged in"
+            ></tui-badge>
+          </td>
+          <td class="tui-table__td">
+            <code>{{ user.username }}</code>
+          </td>
+          <td class="tui-table__td">
+            <code>{{ user.password }}</code>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
