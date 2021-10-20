@@ -1,6 +1,6 @@
 {
   "name": "angular-authentication",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "postinstall": "husky install",
     "ng": "ng",
