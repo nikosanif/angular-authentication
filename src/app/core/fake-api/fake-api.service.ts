@@ -27,6 +27,12 @@ export class FakeApiService implements InMemoryDbService {
   }
 
   get(ri: RequestInfo) {
+    // if client pinged "api/auth/logout" then send OK status
+    if (ri.collectionName === 'auth' && ri.id === 'logout') {
+      const { headers, url } = ri;
+      return ri.utils.createResponse$(() => ({ status: 200, headers, url }));
+    }
+
     // if client pinged "api/users/me" then override id
     if (ri.collectionName === 'users' && ri.id === 'me') {
       const accessToken = ri.query.get('auth-token')?.[0];
