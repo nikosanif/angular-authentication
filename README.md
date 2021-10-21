@@ -52,19 +52,32 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 
 ## Features
 
-<!-- TODO: describe features -->
-
 ### Authentication Flow
 
 <!-- TODO: describe auth flow -->
 
+### Other Features
+
+- Lazy loading of Angular modules
+- API requests with `@ngrx/effects`
+- Responsive design
+- In-memory Web API
+
 ## Tech Stack
 
-<!-- TODO: describe stack -->
+- [Angular](https://angular.io/)
+- [NgRX](https://ngrx.io/) - @ngrx/{store,effects,component}
+- [Taiga UI](https://taiga-ui.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- Other dev tools
+  - ESLint
+  - Prettier
+  - Husky
+  - standard-vesrion
 
 ## High-level Design
 
-Below is the simplified version of application's structure.
+Below is the high-level structure of the application.
 
 ```sh
 ./src
@@ -98,6 +111,7 @@ Below is the simplified version of application's structure.
 │   └── shared # shared UI modules and utilities
 │       ├── ui
 │       └── util
+│
 ├── assets
 │   ├── ...
 │
