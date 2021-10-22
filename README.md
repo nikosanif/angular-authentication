@@ -52,9 +52,10 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 
 ## Features
 
-### Authentication Flow
+### Authentication Flows
 
-<!-- TODO: describe auth flow -->
+![Angular Authentication Demo](./meta/auth-init-flow.png)
+![Angular Authentication Demo](./meta/auth-login-flow.png)
 
 ### Other Features
 
