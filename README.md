@@ -24,7 +24,7 @@ By [@nikosanif](https://twitter.com/nikosanif)
 
 Live application: [angular-authentication.netlify.app](https://angular-authentication.netlify.app/)
 
-![Angular Authentication Demo](./meta/app-preview.png)
+![Angular Authentication Demo](https://raw.githubusercontent.com/nikosanif/angular-authentication/main/meta/app-preview.png)
 
 ## Getting Started
 
@@ -54,8 +54,8 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 
 ### Authentication Flows
 
-![Angular Authentication Demo](./meta/auth-init-flow.png)
-![Angular Authentication Demo](./meta/auth-login-flow.png)
+![Angular Authentication Demo](https://raw.githubusercontent.com/nikosanif/angular-authentication/main/meta/auth-init-flow.png)
+![Angular Authentication Demo](https://raw.githubusercontent.com/nikosanif/angular-authentication/main/meta/auth-login-flow.png)
 
 ### Other Features
 
