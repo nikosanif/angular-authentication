@@ -1,7 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Observable, throwError } from 'rxjs';
+import { lastValueFrom, Observable, throwError } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
 import { ConfigService, TokenStorageService } from '../core/services';
@@ -52,7 +52,7 @@ export class AuthService {
       take(1)
     );
 
-    return authState$.toPromise();
+    return lastValueFrom(authState$);
   }
 
   /**
