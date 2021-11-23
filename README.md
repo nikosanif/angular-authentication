@@ -44,11 +44,12 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 ### Useful Commands
 
 - `npm start` - starts a dev server of Angular app
-- `npm run build` - builds full prod build
+- `npm run build:prod` - builds full prod build
 - `npm run lint` - linting source code of this project
 - `npm run format:check` - runs prettier to check for formatting errors
 - `npm run format:write` - runs prettier to format whole code base
 - `npm run release` - runs standard-version to create new release
+- `npm run analyze` - runs Webpack Bundle Analyzer to examine chunk files
 
 ## Features
 

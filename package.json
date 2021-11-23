@@ -6,12 +6,14 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "NODE_ENV=production ng build",
+    "build:prod": "NODE_ENV=production ng build --configuration production",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
     "format:check": "prettier --list-different \"src/**/*.{ts,js,json,css,scss,html}\"",
     "format:write": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
-    "release": "standard-version"
+    "release": "standard-version",
+    "analyze": "npm run build:prod -- --stats-json --named-chunks && webpack-bundle-analyzer ./dist/angular-authentication/stats.json"
   },
   "private": true,
   "dependencies": {
@@ -71,6 +73,7 @@
     "lint-staged": "^12.1.2",
     "prettier": "^2.4.1",
     "standard-version": "^9.3.2",
-    "typescript": "~4.4.4"
+    "typescript": "~4.4.4",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
