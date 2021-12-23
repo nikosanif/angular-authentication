@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/nikosanif/angular-authentication/compare/v1.0.0...v1.0.1) (2021-12-23)
+
+
+### Build System
+
+* add `analyze` script ([1288bca](https://github.com/nikosanif/angular-authentication/commit/1288bca41cab1b4c615ef429bf72f3997271bf8b))
+* ng update to v13 ([84ab6f9](https://github.com/nikosanif/angular-authentication/commit/84ab6f9da75f61a63af6a51a795868ae7c1b67cb))
+* update angular and packages ([767203b](https://github.com/nikosanif/angular-authentication/commit/767203bba5e8ff462e84c9e1f3a302c42fd2e4d3))
+* update tailwindcss to v3 ([77e6a4e](https://github.com/nikosanif/angular-authentication/commit/77e6a4e0718e1309568a59c81a97800158e87de8))
+* upgrade Angular to v13 and packages ([3993e46](https://github.com/nikosanif/angular-authentication/commit/3993e46eaab44976193e8be95b9ac6c9ab888461))
+
 ## 1.0.0 (2021-10-20)
 
 
