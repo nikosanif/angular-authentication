@@ -11,8 +11,8 @@
     "test": "ng test",
     "test:watch": "ng test --watch",
     "lint": "ng lint",
-    "format:check": "prettier --list-different \"src/**/*.{ts,js,json,css,scss,html}\"",
-    "format:write": "prettier --write \"src/**/*.{ts,js,json,css,scss,html}\"",
+    "format:check": "prettier --check .",
+    "format:write": "prettier --write .",
     "release": "standard-version",
     "analyze": "npm run build:prod -- --stats-json --named-chunks && webpack-bundle-analyzer ./dist/angular-authentication/stats.json"
   },
