@@ -14,6 +14,15 @@ export class ConfigService {
   }
 
   /**
+   * Indicates whether the apps is running in production mode
+   *
+   * @return {*}  {boolean}
+   */
+  isProd(): boolean {
+    return environment.production;
+  }
+
+  /**
    * Returns app's version
    */
   getVersion(): string {
