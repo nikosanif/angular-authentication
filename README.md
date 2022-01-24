@@ -24,7 +24,7 @@ By [@nikosanif](https://twitter.com/nikosanif)
 
 Live application: [angular-authentication.netlify.app](https://angular-authentication.netlify.app/)
 
-![Angular Authentication Demo](https://raw.githubusercontent.com/nikosanif/angular-authentication/main/meta/app-preview.png)
+![Angular Authentication Demo](https://raw.githubusercontent.com/nikosanif/angular-authentication/main/meta/app-demo.gif)
 
 ## Getting Started
 
