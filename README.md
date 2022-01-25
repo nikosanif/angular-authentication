@@ -1,6 +1,6 @@
 # Angular Authentication
 
-An Angular application that demonstrates best practices for user authentication flow.
+An Angular application that demonstrates best practices for user authentication & authorization flows.
 
 By [@nikosanif](https://twitter.com/nikosanif)
 
@@ -138,7 +138,7 @@ If you have found any bug in the source code or want to _request_ a new feature,
 ## Support
 
 - Star this repository 👆⭐️
-- Help it spread to a wider audience: [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/nikosanif.svg?style=social&label=Tweet)](https://twitter.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,TaigaUI,tailwindcss,ngAuth)
+- Help it spread to a wider audience: [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/nikosanif.svg?style=social&label=Tweet)](https://twitter.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,TaigaUI,tailwindcss,ngAuth)
 
 ### Author: Nikos Anifantis ✍️
 
