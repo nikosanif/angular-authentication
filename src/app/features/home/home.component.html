@@ -1,12 +1,12 @@
 <!-- BEGIN: Main banner -->
 <section>
-  <div class="aa--grid aa--grid-cols-1 md:aa--grid-cols-2 aa--gap-4">
+  <div class="aa--grid aa--grid-cols-1 aa--gap-4 md:aa--grid-cols-2">
     <!-- Left -->
     <div
       class="aa--flex aa--flex-col aa--justify-center aa--text-center md:aa--text-left"
     >
       <h1>Angular <span class="aa--text-primary">Authentication</span></h1>
-      <p class="aa--py-5 lg:aa--py-3 aa--text-xl lg:aa--text-2xl">
+      <p class="aa--py-5 aa--text-xl lg:aa--py-3 lg:aa--text-2xl">
         An <span class="aa--text-primary">Angular</span> application that demonstrates
         best practices for user <span class="aa--text-primary">authentication</span> &
         <span class="aa--text-primary">authorization</span> flows.
@@ -40,7 +40,7 @@
     This repository uses state-of-the-art features for web development.
   </p>
 
-  <div class="aa--grid aa--grid-cols-1 md:aa--grid-cols-3 lg:aa--grid-cols-4 aa--gap-8">
+  <div class="aa--grid aa--grid-cols-1 aa--gap-8 md:aa--grid-cols-3 lg:aa--grid-cols-4">
     <div *ngFor="let feature of features" class="card">
       <div class="card-header">
         <tui-avatar
@@ -55,7 +55,7 @@
       <div class="card-content">
         <p class="aa--text-gray-600">{{ feature.description }}</p>
 
-        <div class="aa--flex aa--text-lg aa--mt-6">
+        <div class="aa--mt-6 aa--flex aa--text-lg">
           <a
             *ngIf="feature.link"
             tuiLink
@@ -94,7 +94,7 @@
     </div>
   </div>
 
-  <div class="aa--flex aa--justify-center aa--mt-6">
+  <div class="aa--mt-6 aa--flex aa--justify-center">
     <button tuiButton appearance="secondary" (click)="showAllFeatures = !showAllFeatures">
       Show {{ showAllFeatures ? 'less' : 'more' }}
     </button>
