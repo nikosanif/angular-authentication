@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   TuiButtonModule,
   TuiHostedDropdownModule,
@@ -28,4 +29,10 @@ import { HeaderComponent } from './header.component';
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
 })
-export class HeaderModule {}
+export class HeaderModule {
+  private icons = [faGithub];
+
+  constructor(faIconLibrary: FaIconLibrary) {
+    faIconLibrary.addIcons(...this.icons);
+  }
+}

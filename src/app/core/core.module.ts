@@ -1,14 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import {
-  faGithub,
-  faMediumM,
-  faTwitter,
-  faLinkedinIn,
-} from '@fortawesome/free-brands-svg-icons';
-import { faBook, faLink, faStar } from '@fortawesome/free-solid-svg-icons';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
@@ -37,9 +29,6 @@ import { FakeApiService } from './fake-api';
       ? []
       : StoreDevtoolsModule.instrument({ name: 'Angular Authentication' }),
 
-    // External
-    FontAwesomeModule,
-
     // Application
     AuthModule,
   ],
@@ -49,22 +38,9 @@ import { FakeApiService } from './fake-api';
   ],
 })
 export class CoreModule {
-  constructor(
-    faIconLibrary: FaIconLibrary,
-    @Optional() @SkipSelf() parentModule: CoreModule
-  ) {
+  constructor(@Optional() @SkipSelf() parentModule: CoreModule) {
     if (parentModule) {
       throw new Error('CoreModule is already loaded. Import only once in AppModule');
     }
-
-    faIconLibrary.addIcons(
-      faGithub,
-      faMediumM,
-      faTwitter,
-      faLinkedinIn,
-      faBook,
-      faLink,
-      faStar
-    );
   }
 }
