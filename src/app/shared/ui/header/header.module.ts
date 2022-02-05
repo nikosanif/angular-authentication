@@ -1,8 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import {
   TuiButtonModule,
   TuiHostedDropdownModule,
@@ -12,6 +10,7 @@ import {
 } from '@taiga-ui/core';
 import { TuiAvatarModule } from '@taiga-ui/kit';
 
+import { IconModule } from '../icon/icon.module';
 import { HeaderComponent } from './header.component';
 
 @NgModule({
@@ -24,15 +23,9 @@ import { HeaderComponent } from './header.component';
     TuiAvatarModule,
     TuiSvgModule,
     TuiHintModule,
-    FontAwesomeModule,
+    IconModule,
   ],
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
 })
-export class HeaderModule {
-  private icons = [faGithub];
-
-  constructor(faIconLibrary: FaIconLibrary) {
-    faIconLibrary.addIcons(...this.icons);
-  }
-}
+export class HeaderModule {}
