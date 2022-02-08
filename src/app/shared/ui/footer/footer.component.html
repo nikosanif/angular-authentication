@@ -3,7 +3,7 @@
     <p class="aa--font-semibold">
       © {{ now | date: 'YYYY' }} - Made with ❤️&nbsp; & ☕️&nbsp; by Nikos Anifantis
     </p>
-    <p>Version: {{ version }}</p>
+    <p data-test="version">Version: {{ version }}</p>
   </div>
 
   <div class="links aa--text-center md:aa--text-right">
@@ -12,6 +12,7 @@
       href="https://github.com/nikosanif"
       target="_blank"
       rel="noopener noreferrer"
+      data-test="github"
     >
       <fa-icon [icon]="['fab', 'github']"></fa-icon>
       <span>Github</span>
@@ -21,6 +22,7 @@
       href="https://nikosanif.medium.com/"
       target="_blank"
       rel="noopener noreferrer"
+      data-test="medium"
     >
       <fa-icon [icon]="['fab', 'medium-m']"></fa-icon>
       <span>Medium</span>
@@ -30,6 +32,7 @@
       href="https://twitter.com/nikosanif"
       target="_blank"
       rel="noopener noreferrer"
+      data-test="twitter"
     >
       <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
       <span>Twitter</span>
@@ -39,6 +42,7 @@
       href="https://www.linkedin.com/in/nikosanifantis/"
       target="_blank"
       rel="noopener noreferrer"
+      data-test="linkedin"
     >
       <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
       <span>LinkedIn</span>
