@@ -52,6 +52,7 @@
         #rla="routerLinkActive"
         [appearance]="rla.isActive ? 'primary' : 'flat'"
         [icon]="item.icon!"
+        [attr.data-test]="item.label"
       >
         {{ item.label }}
       </a>
@@ -66,6 +67,7 @@
         <tui-avatar
           [text]="user.firstName + ' ' + user.lastName"
           class="aa--cursor-pointer"
+          data-test="user-avatar"
         ></tui-avatar>
       </tui-hosted-dropdown>
       <ng-template #userDropdown>
@@ -89,6 +91,7 @@
         routerLink="/login"
         [appearance]="'outline'"
         icon="tuiIconUser"
+        data-test="login-btn"
       >
         Login
       </a>
