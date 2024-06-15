@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 
 import { AuthFacade } from '../store/auth.facade';
 
@@ -9,11 +9,11 @@ import { AuthFacade } from '../store/auth.facade';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  readonly loginForm = new FormGroup({
-    username: new FormControl('', {
+  readonly loginForm = new UntypedFormGroup({
+    username: new UntypedFormControl('', {
       validators: [Validators.required],
     }),
-    password: new FormControl('', {
+    password: new UntypedFormControl('', {
       validators: [Validators.required],
     }),
   });

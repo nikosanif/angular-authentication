@@ -109,11 +109,12 @@
       }
     }
   },
-  "defaultProject": "angular-authentication",
   "cli": {
-    "defaultCollection": "@angular-eslint/schematics",
     "cache": {
       "enabled": true
-    }
+    },
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }
