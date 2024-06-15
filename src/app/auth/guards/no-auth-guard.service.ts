@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map, take } from 'rxjs/operators';
@@ -7,7 +7,7 @@ import { map, take } from 'rxjs/operators';
 import { selectIsLoggedIn } from '../store/auth.selectors';
 
 @Injectable({ providedIn: 'root' })
-export class NoAuthGuardService implements CanActivate {
+export class NoAuthGuardService {
   constructor(private router: Router, private store: Store) {}
 
   canActivate(): Observable<boolean> {
