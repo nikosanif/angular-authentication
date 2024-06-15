@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
@@ -16,11 +16,8 @@ import { FakeApiService } from './fake-api';
   imports: [
     // Angular
     CommonModule,
-    HttpClientModule,
-
     // Fake Auth API: Remove this in real apps
     HttpClientInMemoryWebApiModule.forRoot(FakeApiService),
-
     // NgRx
     StoreModule.forRoot({}, {}),
     StoreRouterConnectingModule.forRoot(),
@@ -28,13 +25,13 @@ import { FakeApiService } from './fake-api';
     environment.production
       ? []
       : StoreDevtoolsModule.instrument({ name: 'Angular Authentication' }),
-
     // Application
     AuthModule,
   ],
   providers: [
     // Interceptors
     ...authInterceptorProviders,
+    provideHttpClient(withInterceptorsFromDi()),
   ],
 })
 export class CoreModule {
