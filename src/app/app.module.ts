@@ -5,6 +5,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 
 import { AppComponent } from './app/app.component';
 import { CoreModule } from './core/core.module';
+import { FooterComponent } from './shared/ui/footer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,7 +21,7 @@ import { CoreModule } from './core/core.module';
     // TODO: comment in
     // AppRoutingModule,
     // HeaderModule,
-    // FooterModule,
+    FooterComponent,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
