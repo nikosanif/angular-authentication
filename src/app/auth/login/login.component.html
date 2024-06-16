@@ -7,7 +7,11 @@
 
     <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
       <tui-notification status="info">
-        Use account <b>admin</b> and password <b>demo</b> to continue.
+        Use account
+        <b>admin</b>
+        and password
+        <b>demo</b>
+        to continue.
       </tui-notification>
 
       <tui-notification *ngIf="showLoginError$ | async" status="error" class="aa--mt-4">
@@ -16,13 +20,15 @@
 
       <div class="tui-form__row">
         <tui-input formControlName="username">
-          Username <span class="tui-required"></span>
+          Username
+          <span class="tui-required"></span>
         </tui-input>
         <tui-field-error formControlName="username"></tui-field-error>
       </div>
       <div class="tui-form__row">
         <tui-input-password formControlName="password">
-          Password <span class="tui-required"></span>
+          Password
+          <span class="tui-required"></span>
         </tui-input-password>
         <tui-field-error formControlName="password"></tui-field-error>
       </div>

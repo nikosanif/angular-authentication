@@ -15,7 +15,7 @@ export class FakeAuth {
       return this.respond(this.throw400BadRequest());
     }
 
-    let user: typeof USERS[number] | undefined;
+    let user: (typeof USERS)[number] | undefined;
     if (grant_type === 'refresh_token') {
       // login with refresh token
       user = this.getUserByRefreshToken(refresh_token);
@@ -24,12 +24,12 @@ export class FakeAuth {
       user = this.getUserByCredentials(username, password);
     }
 
-    return !!user
+    return user
       ? this.respond(this.login(user))
       : this.respond(this.throw400BadRequest());
   }
 
-  private login(user: typeof USERS[number]): ResponseOptions {
+  private login(user: (typeof USERS)[number]): ResponseOptions {
     const { headers, url } = this.reqInfo;
     return {
       status: 200,
@@ -59,14 +59,16 @@ export class FakeAuth {
     };
   }
 
-  private getUserByRefreshToken(refreshToken: string): typeof USERS[number] | undefined {
+  private getUserByRefreshToken(
+    refreshToken: string
+  ): (typeof USERS)[number] | undefined {
     return USERS.find(user => user.refreshToken === refreshToken);
   }
 
   private getUserByCredentials(
     username: string,
     password: string
-  ): typeof USERS[number] | undefined {
+  ): (typeof USERS)[number] | undefined {
     return USERS.find(user => user.username === username && user.password === password);
   }
 

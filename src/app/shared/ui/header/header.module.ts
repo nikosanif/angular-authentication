@@ -11,6 +11,7 @@ import {
 import { TuiAvatarModule } from '@taiga-ui/kit';
 
 import { IconModule } from '../icon/icon.module';
+
 import { HeaderComponent } from './header.component';
 
 @NgModule({

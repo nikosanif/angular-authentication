@@ -8,7 +8,10 @@ import { selectIsLoggedIn } from '../store/auth.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class NoAuthGuardService {
-  constructor(private router: Router, private store: Store) {}
+  constructor(
+    private router: Router,
+    private store: Store
+  ) {}
 
   canActivate(): Observable<boolean> {
     return this.store.select(selectIsLoggedIn).pipe(

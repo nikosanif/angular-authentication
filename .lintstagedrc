@@ -1,5 +1,0 @@
-{
-  "*.{ts,html}": [
-    "eslint --cache"
-  ]
-}

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { TuiLinkModule } from '@taiga-ui/core';
 
 import { IconModule } from '../icon/icon.module';
+
 import { FooterComponent } from './footer.component';
 
 @NgModule({

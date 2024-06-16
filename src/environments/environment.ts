@@ -2,6 +2,7 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const { version } = require('../../package.json');
 
 export const environment = {

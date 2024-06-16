@@ -1,14 +1,18 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "parserOptions": {
+    "project": ["tsconfig.eslint.json"],
+    "createDefaultProgram": true
+  },
+  "plugins": ["eslint-plugin-import", "@babel"],
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
-      },
+      "plugins": ["ngrx"],
       "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:ngrx/recommended"
@@ -36,10 +40,13 @@
             "alphabetize": {
               "order": "asc"
             },
-            "groups": ["builtin", "external"],
+            "pathGroupsExcludedImportTypes": ["internal"],
+            "groups": [["builtin", "external"], "internal", "type", "parent"],
             "newlines-between": "always"
           }
         ],
+        "import/first": ["error"],
+        "import/no-duplicates": ["error"],
         "@typescript-eslint/member-ordering": [
           "error",
           {
@@ -137,15 +144,17 @@
           }
         ],
         "@typescript-eslint/type-annotation-spacing": "error",
-        "@babel/semi": "error"
-      },
-      "plugins": ["ngrx"]
+        "@babel/semi": "error",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
       "rules": {}
     }
-  ],
-  "plugins": ["eslint-plugin-import", "@babel"]
+  ]
 }

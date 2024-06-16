@@ -5,6 +5,7 @@ import { TuiButtonModule, TuiHintModule, TuiLinkModule } from '@taiga-ui/core';
 import { TuiAvatarModule } from '@taiga-ui/kit';
 
 import { IconModule } from '../../shared/ui/icon/icon.module';
+
 import { HomeComponent } from './home.component';
 
 const routes: Routes = [{ path: '', component: HomeComponent }];
