@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TuiDialogModule, TuiNotificationsModule, TuiRootModule } from '@taiga-ui/core';
 
 import { AppComponent } from './app/app.component';
@@ -29,7 +30,7 @@ import { HeaderModule } from './shared/ui/header/header.module';
     HeaderModule,
     FooterModule,
   ],
-  providers: [],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
