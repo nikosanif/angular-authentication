@@ -4,6 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 import { AppComponent } from './app/app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { FooterComponent } from './shared/ui/footer';
 
@@ -19,7 +20,7 @@ import { FooterComponent } from './shared/ui/footer';
 
     // Application
     // TODO: comment in
-    // AppRoutingModule,
+    AppRoutingModule,
     // HeaderModule,
     FooterComponent,
   ],

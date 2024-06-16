@@ -20,8 +20,7 @@
       </p>
       <div class="aa--mt-4">
         <a
-          tuiButton
-          [appearance]="'primary'"
+          mat-flat-button
           href="https://github.com/nikosanif/angular-authentication"
           target="_blank"
           rel="noopener noreferrer"
@@ -48,61 +47,62 @@
   </p>
 
   <div class="aa--grid aa--grid-cols-1 aa--gap-8 md:aa--grid-cols-3 lg:aa--grid-cols-4">
-    <div *ngFor="let feature of features" class="card">
-      <div class="card-header">
-        <tui-avatar
-          [text]="feature.name"
-          [autoColor]="true"
-          size="s"
-          [rounded]="true"
-          class="aa--mr-2"
-        />
-        <div class="card-title">{{ feature.name }}</div>
-      </div>
-      <div class="card-content">
-        <p class="aa--text-gray-600">{{ feature.description }}</p>
+    @for (feature of features; track $index) {
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>{{ feature.name }}</mat-card-title>
+        </mat-card-header>
 
-        <div class="aa--mt-6 aa--flex aa--text-lg">
-          <a
-            *ngIf="feature.link"
-            tuiLink
-            tuiHint="Link"
-            [href]="feature.link"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="aa--mr-4"
-          >
-            <fa-icon icon="link" />
-          </a>
-          <a
-            *ngIf="feature.github"
-            tuiLink
-            tuiHint="Github"
-            [href]="feature.github"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="aa--mr-4"
-          >
-            <fa-icon [icon]="['fab', 'github']" />
-          </a>
-          <a
-            *ngIf="feature.docs"
-            tuiLink
-            [href]="feature.docs"
-            tuiHint="Documentation"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="aa--mr-4"
-          >
-            <fa-icon icon="book" />
-          </a>
-        </div>
-      </div>
-    </div>
+        <mat-card-content>
+          <p>{{ feature.description }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          @if (feature.link) {
+            <a
+              mat-button
+              matTooltip="Link"
+              [href]="feature.link"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="aa--mr-4"
+            >
+              <fa-icon icon="link" />
+            </a>
+          }
+
+          @if (feature.github) {
+            <a
+              mat-button
+              matTooltip="Github"
+              [href]="feature.github"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="aa--mr-4"
+            >
+              <fa-icon [icon]="['fab', 'github']" />
+            </a>
+          }
+
+          @if (feature.docs) {
+            <a
+              mat-button
+              matTooltip="Documentation"
+              [href]="feature.docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="aa--mr-4"
+            >
+              <fa-icon icon="book" />
+            </a>
+          }
+        </mat-card-actions>
+      </mat-card>
+    }
   </div>
 
   <div class="aa--mt-6 aa--flex aa--justify-center">
-    <button tuiButton appearance="secondary" (click)="showAllFeatures = !showAllFeatures">
+    <button mat-raised-button (click)="showAllFeatures = !showAllFeatures">
       Show {{ showAllFeatures ? 'less' : 'more' }}
     </button>
   </div>

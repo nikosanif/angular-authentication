@@ -1,35 +1,3 @@
-// Card styles
-.card {
-  border-radius: 8px;
-  padding: 20px;
-  background-color: white;
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-
-    .card-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 100%;
-      font-size: 1.4rem;
-      font-weight: 600;
-      background-color: #dedede;
-      margin-right: 12px;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      line-height: 28px;
-    }
-  }
-}
-
 // Section styles
 section {
   @apply aa--mt-4

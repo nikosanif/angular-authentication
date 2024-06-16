@@ -19,8 +19,7 @@
 
   <div class="aa--inline md:aa--flex">
     <a
-      tuiButton
-      appearance="secondary"
+      mat-raised-button
       href="https://github.com/nikosanif/angular-authentication"
       target="_blank"
       rel="noopener noreferrer"
@@ -30,15 +29,16 @@
       <span>Star</span>
     </a>
     <a
-      tuiButton
+      mat-raised-button
       appearance="secondary"
       href="https://twitter.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,TaigaUI,tailwindcss,ngAuth
       "
       target="_blank"
       rel="noopener noreferrer"
     >
+      <!-- TODO: change X icon -->
       <fa-icon [icon]="['fab', 'twitter']" class="aa--mr-2" />
-      <span>Tweet</span>
+      <span>X</span>
     </a>
   </div>
 </section>

@@ -6,6 +6,8 @@ export interface Feature {
   docs: string | null;
 }
 
+// TODO: check links
+// TODO: check if all features are used
 export const features: Feature[] = [
   {
     name: 'Angular',
