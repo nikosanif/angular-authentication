@@ -8,7 +8,6 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { environment } from '../../environments/environment';
-import { AuthModule } from '../auth/auth.module';
 import { authInterceptorProviders } from '../auth/interceptors';
 
 import { FakeApiService } from './fake-api';
@@ -27,7 +26,8 @@ import { FakeApiService } from './fake-api';
       ? []
       : StoreDevtoolsModule.instrument({ name: 'Angular Authentication' }),
     // Application
-    AuthModule,
+    // TODO: import it back
+    // AuthModule,
   ],
   providers: [
     // Interceptors

@@ -29,11 +29,11 @@ export const features: Feature[] = [
     docs: 'https://rxjs.dev/guide/overview',
   },
   {
-    name: 'Taiga UI',
-    description: 'Angular UI Kit and components library for awesome people.',
-    link: 'https://taiga-ui.dev/',
-    github: 'https://github.com/TinkoffCreditSystems/taiga-ui',
-    docs: 'https://taiga-ui.dev/getting-started',
+    name: 'Angular Material',
+    description: 'Material Design components for Angular.',
+    link: 'https://material.angular.io/',
+    github: 'https://github.com/angular/components',
+    docs: 'https://material.angular.io/guide/getting-started',
   },
   {
     name: 'Tailwindcss',
