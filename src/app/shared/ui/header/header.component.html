@@ -32,7 +32,21 @@
 
   <div class="aa--flex aa--items-center">
     @if (authUser$ | async; as user) {
-      <aa-avatar [text]="user.firstName + ' ' + user.lastName" />
+      <aa-avatar
+        [text]="user.firstName + ' ' + user.lastName"
+        [matMenuTriggerFor]="userMenu"
+        class="aa--cursor-pointer"
+      />
+
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item type="button" disabled>
+          {{ user.firstName + ' ' + user.lastName }}
+        </button>
+        <button mat-menu-item type="button" (click)="logout()">
+          <fa-icon class="aa--mr-2" [icon]="'right-from-bracket'" />
+          Sign out
+        </button>
+      </mat-menu>
     } @else {
       <a mat-stroked-button routerLink="/login">
         <fa-icon class="aa--mr-2" [icon]="'user'" />

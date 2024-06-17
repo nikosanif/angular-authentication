@@ -12,6 +12,7 @@ import {
   faLink,
   faLock,
   faUser,
+  faRightFromBracket,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -31,6 +32,7 @@ export class IconModule {
     faLink,
     faLock,
     faUser,
+    faRightFromBracket,
   ];
 
   constructor() {

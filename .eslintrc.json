@@ -137,7 +137,6 @@
         "key-spacing": "error",
         "array-element-newline": ["error", "consistent"],
         "no-extra-semi": "error",
-        "dot-notation": "error",
         "comma-spacing": "error",
         "prefer-const": "error",
         "eqeqeq": "error",

@@ -4,18 +4,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { environment } from '../../environments/environment';
 import { AuthModule, authInterceptorProviders } from '../auth';
 
-import { FakeApiService } from './fake-api';
+import { fakeApiProvider } from './fake-api';
 
 @NgModule({
   imports: [
-    // Fake Auth API: Remove this in real apps
-    HttpClientInMemoryWebApiModule.forRoot(FakeApiService),
-
     // NgRx
     StoreModule.forRoot({}, {}),
     StoreRouterConnectingModule.forRoot(),
@@ -31,6 +27,9 @@ import { FakeApiService } from './fake-api';
     // Interceptors
     provideHttpClient(withInterceptorsFromDi()),
     ...authInterceptorProviders,
+
+    // FIXME: remove it in real app
+    fakeApiProvider,
   ],
 })
 export class CoreModule {

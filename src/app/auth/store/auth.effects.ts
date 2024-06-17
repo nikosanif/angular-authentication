@@ -40,7 +40,6 @@ export class AuthEffects {
       map(() => {
         // redirect to return url or home
         this.router.navigateByUrl(
-          // eslint-disable-next-line dot-notation
           this.activatedRoute.snapshot.queryParams['returnUrl'] || '/'
         );
         return AuthActions.getAuthUserRequest();

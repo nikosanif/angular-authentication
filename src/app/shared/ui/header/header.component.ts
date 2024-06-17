@@ -1,6 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
@@ -21,11 +22,12 @@ interface MenuItem {
   imports: [
     AsyncPipe,
     AvatarComponent,
+    IconModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatTooltipModule,
     RouterLink,
     RouterLinkActive,
-    MatButtonModule,
-    IconModule,
-    MatTooltipModule,
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],

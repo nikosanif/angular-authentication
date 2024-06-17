@@ -79,14 +79,6 @@ export const features: Feature[] = [
     docs: 'https://prettier.io/docs/en/index.html',
   },
   {
-    name: 'In-memory Web API',
-    description: 'An in-memory web API for Angular demos and tests.',
-    link: null,
-    github:
-      'https://github.com/angular/angular/tree/master/packages/misc/angular-in-memory-web-api',
-    docs: 'https://angular.io/tutorial/toh-pt6',
-  },
-  {
     name: 'Lint Staged',
     description: 'Run linters on git staged files.',
     link: null,
