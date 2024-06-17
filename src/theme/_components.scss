@@ -1,6 +1,4 @@
 // Section styles
 section {
-  @apply aa--mt-4
-    aa--mb-12
-    lg:aa--mb-16;
+  @apply aa--mb-12 aa--mt-4 lg:aa--mb-16;
 }

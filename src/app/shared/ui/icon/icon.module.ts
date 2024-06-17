@@ -3,7 +3,7 @@ import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontaweso
 import {
   faGithub,
   faMediumM,
-  faTwitter,
+  faXTwitter,
   faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
 import { faStar, faBook, faLink } from '@fortawesome/free-solid-svg-icons';
@@ -13,7 +13,7 @@ import { faStar, faBook, faLink } from '@fortawesome/free-solid-svg-icons';
   exports: [FontAwesomeModule],
 })
 export class IconModule {
-  private icons = [faGithub, faMediumM, faTwitter, faLinkedinIn, faStar, faBook, faLink];
+  private icons = [faGithub, faMediumM, faXTwitter, faLinkedinIn, faStar, faBook, faLink];
 
   constructor(faIconLibrary: FaIconLibrary) {
     faIconLibrary.addIcons(...this.icons);

@@ -42,8 +42,7 @@ export class FooterComponent {
     {
       label: 'X',
       href: 'https://x.com/nikosanif',
-      // TODO: add X icon
-      icon: ['fab', 'twitter'],
+      icon: ['fab', 'x-twitter'],
     },
   ];
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { filter } from 'rxjs';
 
@@ -6,16 +6,25 @@ import { ConfigService, GoogleAnalyticsService } from '../core/services';
 
 @Component({
   selector: 'aa-root',
-  templateUrl: './app.component.html',
+  template: `
+    <div class="content">
+      <!-- TODO: comment in -->
+      <!-- <aa-header></aa-header> -->
+
+      <div class="main-content">
+        <main><router-outlet /></main>
+
+        <aa-footer />
+      </div>
+    </div>
+  `,
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private configService: ConfigService,
-    private googleAnalyticsService: GoogleAnalyticsService
-  ) {}
+  private readonly router = inject(Router);
+  private readonly configService = inject(ConfigService);
+  private readonly googleAnalyticsService = inject(GoogleAnalyticsService);
 
   ngOnInit() {
     if (this.configService.isProd()) {
