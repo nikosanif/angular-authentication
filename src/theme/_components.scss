@@ -18,4 +18,8 @@ section {
   &.alert--info {
     @apply aa--bg-blue-100 aa--text-blue-800;
   }
+
+  &.alert--warning {
+    @apply aa--bg-yellow-100 aa--text-yellow-800;
+  }
 }

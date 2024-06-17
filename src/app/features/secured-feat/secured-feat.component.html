@@ -1,54 +1,59 @@
-<section *ngrxLet="user$ as user">
-  <h1>
-    {{ greeting }},
-    <span class="aa--text-primary">{{ user?.firstName }} {{ user?.lastName }}</span>
-  </h1>
+@if (authUser$ | async; as user) {
+  <section>
+    <h1>
+      {{ greeting }},
+      <span class="aa--text-primary">{{ user.firstName }} {{ user.lastName }}</span>
+    </h1>
 
-  <p class="aa--text-xl">
-    Shhh... 🤫 - This is a
-    <span class="aa--text-primary">top secret</span>
-    feature!
-  </p>
-</section>
+    <p class="aa--text-xl">
+      Shhh... 🤫 - This is a
+      <span class="aa--text-primary">top secret</span>
+      feature!
+    </p>
+  </section>
 
-<section>
-  <h2 class="aa--mb-4">Users</h2>
+  <section>
+    <h2>Users</h2>
 
-  <div class="card">
-    <tui-notification class="aa--mb-4" status="warning">
-      Note that we expose users' credentials for
-      <b>demonstration purposes</b>
-      only! Feel free to logout and login again using one of the following accounts.
-    </tui-notification>
+    <mat-card>
+      <mat-card-content>
+        <div class="alert alert--warning">
+          Note that we expose users' credentials for
+          <b>demonstration purposes</b>
+          only! Feel free to logout and login again using one of the following accounts.
+        </div>
 
-    <table class="tui-table">
-      <tbody>
-        <tr class="tui-table__tr">
-          <th class="tui-table__th">ID</th>
-          <th class="tui-table__th">Full Name</th>
-          <th class="tui-table__th">Username</th>
-          <th class="tui-table__th">Password</th>
-        </tr>
-        <tr *ngFor="let user of users" class="tui-table__tr">
-          <td class="tui-table__td">{{ user.id }}</td>
-          <td class="tui-table__td">
-            {{ user.firstName }} {{ user.lastName }}
-            <tui-badge
-              *ngIf="(user$ | async)?.id === user.id"
-              class="md:aa--ml-2"
-              size="s"
-              status="success"
-              value="Logged in"
-            />
-          </td>
-          <td class="tui-table__td">
-            <code>{{ user.username }}</code>
-          </td>
-          <td class="tui-table__td">
-            <code>{{ user.password }}</code>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</section>
+        <table mat-table [dataSource]="dataSource" class="aa--w-full">
+          <!-- Id Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>Id</th>
+            <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+          </ng-container>
+
+          <!-- Full Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Full Name</th>
+            <td mat-cell *matCellDef="let user">
+              {{ user.firstName }} {{ user.lastName }}
+            </td>
+          </ng-container>
+
+          <!-- Username Column -->
+          <ng-container matColumnDef="username">
+            <th mat-header-cell *matHeaderCellDef>Username</th>
+            <td mat-cell *matCellDef="let user">{{ user.username }}</td>
+          </ng-container>
+
+          <!-- Password Column -->
+          <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef>Password</th>
+            <td mat-cell *matCellDef="let user">{{ user.password }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </section>
+}
