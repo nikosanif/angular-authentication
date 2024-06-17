@@ -5,7 +5,7 @@ import {
   HttpRequest,
   HttpInterceptor,
 } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { EMPTY, Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -14,10 +14,8 @@ import { AuthFacade } from '../store/auth.facade';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(
-    private authFacade: AuthFacade,
-    private tokenStorageService: TokenStorageService
-  ) {}
+  private readonly authFacade = inject(AuthFacade);
+  private readonly tokenStorageService = inject(TokenStorageService);
 
   intercept(
     req: HttpRequest<unknown>,

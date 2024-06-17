@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { APP_INITIALIZER, Injectable, Provider } from '@angular/core';
+import { APP_INITIALIZER, Injectable, Provider, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { lastValueFrom, Observable, throwError } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
@@ -19,21 +19,14 @@ export interface AccessData {
 
 @Injectable()
 export class AuthService {
-  private hostUrl: string;
-  private clientId: string;
-  private clientSecret: string;
+  private readonly store = inject(Store);
+  private readonly http = inject(HttpClient);
+  private readonly configService = inject(ConfigService);
+  private readonly tokenStorageService = inject(TokenStorageService);
 
-  constructor(
-    private store: Store,
-    private http: HttpClient,
-    private configService: ConfigService,
-    private tokenStorageService: TokenStorageService
-  ) {
-    this.hostUrl = this.configService.getAPIUrl();
-    const authConfig = this.configService.getAuthSettings();
-    this.clientId = authConfig.clientId;
-    this.clientSecret = authConfig.secretId;
-  }
+  private readonly hostUrl = this.configService.getAPIUrl();
+  private readonly clientId = this.configService.getAuthSettings().clientId;
+  private readonly clientSecret = this.configService.getAuthSettings().secretId;
 
   /**
    * Returns a promise that waits until

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, RouterStateSnapshot } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -8,10 +8,8 @@ import { selectIsLoggedIn } from '../store/auth.selectors';
 
 @Injectable({ providedIn: 'root' })
 export class AuthGuardService {
-  constructor(
-    private router: Router,
-    private store: Store
-  ) {}
+  private readonly store = inject(Store);
+  private readonly router = inject(Router);
 
   canActivate(
     route: ActivatedRouteSnapshot,

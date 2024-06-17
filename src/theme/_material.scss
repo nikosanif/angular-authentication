@@ -29,8 +29,8 @@ $angular-authentication-theme: mat.define-theme(
   (
     color: (
       theme-type: light,
-      primary: mat.$azure-palette,
-      tertiary: mat.$blue-palette,
+      primary: mat.$violet-palette,
+      tertiary: mat.$cyan-palette,
     ),
     typography: (
       plain-family: $font-main,

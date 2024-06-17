@@ -7,6 +7,7 @@ import { AppComponent } from './app/app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { FooterComponent } from './shared/ui/footer';
+import { HeaderComponent } from './shared/ui/header';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,9 +20,8 @@ import { FooterComponent } from './shared/ui/footer';
     CoreModule,
 
     // Application
-    // TODO: comment in
     AppRoutingModule,
-    // HeaderModule,
+    HeaderComponent,
     FooterComponent,
   ],
   providers: [provideAnimationsAsync()],

@@ -158,14 +158,6 @@
             "before": false
           }
         ],
-        "indent": [
-          "error",
-          2,
-          {
-            "SwitchCase": 1,
-            "ignoredNodes": ["CallExpression"]
-          }
-        ],
         "@typescript-eslint/type-annotation-spacing": "error",
         "@babel/semi": "error",
         "@typescript-eslint/no-explicit-any": "warn"

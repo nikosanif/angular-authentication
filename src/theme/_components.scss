@@ -2,3 +2,20 @@
 section {
   @apply aa--mb-12 aa--mt-4 lg:aa--mb-16;
 }
+
+// Alert styles
+.alert {
+  @apply aa--mb-4 aa--rounded-lg aa--p-4;
+
+  &.alert--success {
+    @apply aa--bg-green-100 aa--text-green-800;
+  }
+
+  &.alert--error {
+    @apply aa--bg-red-100 aa--text-red-800;
+  }
+
+  &.alert--info {
+    @apply aa--bg-blue-100 aa--text-blue-800;
+  }
+}

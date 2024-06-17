@@ -6,15 +6,14 @@ export interface Feature {
   docs: string | null;
 }
 
-// TODO: check links
-// TODO: check if all features are used
+// TODO: change standard-version to release-it
 export const features: Feature[] = [
   {
     name: 'Angular',
     description: `The modern web developer's platform.`,
-    link: 'https://angular.io/',
+    link: 'https://angular.dev/',
     github: 'https://github.com/angular/angular',
-    docs: 'https://angular.io/docs',
+    docs: 'https://angular.dev/overview',
   },
   {
     name: 'NgRx',
@@ -49,7 +48,7 @@ export const features: Feature[] = [
     description: 'Faster startup time with lazy loaded feature modules.',
     link: null,
     github: null,
-    docs: 'https://angular.io/guide/router#lazy-loading-route-configuration',
+    docs: 'https://angular.dev/guide/routing/common-router-tasks#lazy-loading',
   },
   {
     name: 'Font Awesome 5',

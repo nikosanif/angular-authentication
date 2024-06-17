@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 
-import { AuthFacade } from '../../auth/store/auth.facade';
+import { AuthFacade } from '../../auth';
 import { USERS } from '../../core/fake-api';
 import { GreetingUtil } from '../../shared/util';
 @Component({
@@ -8,9 +8,9 @@ import { GreetingUtil } from '../../shared/util';
   templateUrl: './secured-feat.component.html',
 })
 export class SecuredFeatComponent {
-  greeting = GreetingUtil.greet();
-  user$ = this.authFacade.user$;
-  users = USERS;
+  private readonly authFacade = inject(AuthFacade);
 
-  constructor(private authFacade: AuthFacade) {}
+  readonly greeting = GreetingUtil.greet();
+  readonly user$ = this.authFacade.user$;
+  readonly users = USERS;
 }

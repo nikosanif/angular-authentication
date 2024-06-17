@@ -8,8 +8,7 @@ import { ConfigService, GoogleAnalyticsService } from '../core/services';
   selector: 'aa-root',
   template: `
     <div class="content">
-      <!-- TODO: comment in -->
-      <!-- <aa-header></aa-header> -->
+      <aa-header />
 
       <div class="main-content">
         <main><router-outlet /></main>

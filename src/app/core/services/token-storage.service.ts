@@ -1,21 +1,17 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 
 import { ConfigService } from './config.service';
 import { LocalStorageService } from './local-storage.service';
 
 @Injectable({ providedIn: 'root' })
 export class TokenStorageService {
-  private accessTokenKey: string;
-  private refreshTokenKey: string;
+  private readonly configService = inject(ConfigService);
+  private readonly localStorageService = inject(LocalStorageService);
 
-  constructor(
-    private configService: ConfigService,
-    private localStorageService: LocalStorageService
-  ) {
-    const authSettings = this.configService.getAuthSettings();
-    this.accessTokenKey = authSettings.accessTokenKey || 'accessToken';
-    this.refreshTokenKey = authSettings.refreshTokenKey || 'refreshToken';
-  }
+  private readonly accessTokenKey =
+    this.configService.getAuthSettings().accessTokenKey || 'accessToken';
+  private readonly refreshTokenKey =
+    this.configService.getAuthSettings().refreshTokenKey || 'refreshToken';
 
   getAccessToken(): string {
     return this.localStorageService.getItem(this.accessTokenKey) as string;
