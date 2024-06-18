@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.0.0](https://github.com/nikosanif/angular-authentication/compare/v1.0.1...v2.0.0) (2024-06-18)
+
+### Features
+
+- add google analytics ([6857211](https://github.com/nikosanif/angular-authentication/commit/6857211a028dd9c6b522ef9451bc0a0fc832ab78))
+- add open graph and twitter meta tags ([da4f9dd](https://github.com/nikosanif/angular-authentication/commit/da4f9ddeba4ff791317e8c2d9fefbf0a64775ce0))
+- **app:** update app to Angular 18 ([#8](https://github.com/nikosanif/angular-authentication/issues/8)) ([0485383](https://github.com/nikosanif/angular-authentication/commit/0485383179e662bab2ef0438bf2feb6310675c46))
+- **icons:** create module for icons ([74664ea](https://github.com/nikosanif/angular-authentication/commit/74664eaea4c1e585f663497e0e815f70855cf513))
+
+### Build System
+
+- install prettier-plugin for tailwindcss ([bc03223](https://github.com/nikosanif/angular-authentication/commit/bc03223524133e196e687c4febd4db5611c27cf5))
+- setup unit testing tools ([#2](https://github.com/nikosanif/angular-authentication/issues/2)) ([61695a9](https://github.com/nikosanif/angular-authentication/commit/61695a902f5a5cd9aa61b1d012b7fbe67bac6d13)), closes [#1](https://github.com/nikosanif/angular-authentication/issues/1)
+
 All notable changes to this project will be documented in this file.
 
 ### [1.0.1](https://github.com/nikosanif/angular-authentication/compare/v1.0.0...v1.0.1) (2021-12-23)

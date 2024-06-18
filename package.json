@@ -1,6 +1,6 @@
 {
   "name": "angular-authentication",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "engines": {
     "node": "^20"
   },
@@ -74,7 +74,9 @@
   "release-it": {
     "git": {
       "commitMessage": "chore(release): ${version}",
-      "requireBranch": ["main"],
+      "requireBranch": [
+        "main"
+      ],
       "tag": true
     },
     "npm": {
