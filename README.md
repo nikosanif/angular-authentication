@@ -2,12 +2,12 @@
 
 An Angular application that demonstrates best practices for user authentication & authorization flows.
 
-By [@nikosanif](https://twitter.com/nikosanif)
+By [@nikosanif](https://x.com/nikosanif)
 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/nikosanif/angular-authentication)
 [![license](https://img.shields.io/github/license/nikosanif/angular-authentication.svg)](https://github.com/nikosanif/angular-authentication/blob/main/LICENSE)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4c9d2c63-d481-486a-996c-8451443ac9d6/deploy-status)](https://angular-authentication.netlify.app)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![Twitter Follow](https://img.shields.io/twitter/follow/nikosanif.svg?style=social&label=Follow)](https://twitter.com/nikosanif)
+[![X Follow](https://img.shields.io/twitter/follow/nikosanif.svg?style=social&label=Follow)](https://x.com/nikosanif)
 
 ## Table of Contents
 
@@ -48,8 +48,7 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 - `npm run lint` - linting source code of this project
 - `npm run format:check` - runs prettier to check for formatting errors
 - `npm run format:write` - runs prettier to format whole code base
-- `npm run release` - runs standard-version to create new release
-- `npm run analyze` - runs Webpack Bundle Analyzer to examine chunk files
+- `npm run release` - runs `release-it` to create new release
 
 ## Features
 
@@ -63,13 +62,13 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 - Lazy loading of Angular modules
 - API requests with `@ngrx/effects`
 - Responsive design
-- In-memory Web API
+- Custom In-memory Web API using interceptors
 
 ## Tech Stack
 
 - [Angular](https://angular.io/)
 - [NgRX](https://ngrx.io/) - @ngrx/{store,effects,component}
-- [Taiga UI](https://taiga-ui.dev/)
+- [Angular Material UI](https://material.angular.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - Other dev tools
   - ESLint
@@ -138,13 +137,13 @@ If you have found any bug in the source code or want to _request_ a new feature,
 ## Support
 
 - Star this repository 👆⭐️
-- Help it spread to a wider audience: [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/nikosanif.svg?style=social&label=Tweet)](https://twitter.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,TaigaUI,tailwindcss,ngAuth)
+- Help it spread to a wider audience: [![X](https://img.shields.io/twitter/url/https/x.com/nikosanif.svg?style=social&label=Tweet)](https://x.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,MDX,tailwindcss,ngAuth)
 
 ### Author: Nikos Anifantis ✍️
 
 - Fullstack Software Engineer - I’m currently working on Angular & Node.js application development.
 - I write stuff at [dev.to/nikosanif](https://dev.to/nikosanif) and [nikosanif.medium.com](https://nikosanif.medium.com/)
-- How to reach me: [![Twitter](https://img.shields.io/twitter/url/https/twitter.com/nikosanif.svg?style=social&label=Follow%20nikosanif)](https://twitter.com/nikosanif) or [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=social&style=flat&logo=linkedin&labelColor=blue&label=Connect%20Nikos%20Anifantis)](https://www.linkedin.com/in/nikosanifantis/)
+- How to reach me: [![X](https://img.shields.io/twitter/url/https/x.com/nikosanif.svg?style=social&label=Follow%20nikosanif)](https://x.com/nikosanif) or [![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?style=social&style=flat&logo=linkedin&labelColor=blue&label=Connect%20Nikos%20Anifantis)](https://www.linkedin.com/in/nikosanifantis/)
 
 ## License
 

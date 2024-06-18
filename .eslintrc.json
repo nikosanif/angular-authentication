@@ -1,14 +1,18 @@
 {
   "root": true,
   "ignorePatterns": ["projects/**/*"],
+  "parserOptions": {
+    "project": ["tsconfig.eslint.json"],
+    "createDefaultProgram": true
+  },
+  "plugins": ["eslint-plugin-import", "@babel"],
   "overrides": [
     {
       "files": ["*.ts"],
-      "parserOptions": {
-        "project": ["tsconfig.json"],
-        "createDefaultProgram": true
-      },
+      "plugins": ["ngrx"],
       "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:ngrx/recommended"
@@ -36,20 +40,46 @@
             "alphabetize": {
               "order": "asc"
             },
-            "groups": ["builtin", "external"],
+            "pathGroupsExcludedImportTypes": ["internal"],
+            "groups": [["builtin", "external"], "internal", "type", "parent"],
             "newlines-between": "always"
           }
         ],
+        "import/first": ["error"],
+        "import/no-duplicates": ["error"],
         "@typescript-eslint/member-ordering": [
           "error",
           {
             "default": [
-              "public-decorated-field",
-              "public-instance-field",
+              "signature",
+              "public-static-field",
+              "protected-static-field",
+              "private-static-field",
+              "public-abstract-field",
+              "protected-abstract-field",
               "private-decorated-field",
               "private-instance-field",
+              "protected-decorated-field",
+              "protected-instance-field",
+              "public-decorated-field",
+              "public-instance-field",
               "public-constructor",
+              "protected-constructor",
+              "private-constructor",
+              "public-static-method",
+              "protected-static-method",
+              "private-static-method",
+              "public-abstract-get",
+              "public-abstract-set",
+              "protected-abstract-get",
+              "protected-abstract-set",
+              "public-abstract-method",
+              "protected-abstract-method",
+              "public-decorated-method",
               "public-instance-method",
+              "protected-decorated-method",
+              "protected-instance-method",
+              "private-decorated-method",
               "private-instance-method"
             ]
           }
@@ -107,7 +137,6 @@
         "key-spacing": "error",
         "array-element-newline": ["error", "consistent"],
         "no-extra-semi": "error",
-        "dot-notation": "error",
         "comma-spacing": "error",
         "prefer-const": "error",
         "eqeqeq": "error",
@@ -128,24 +157,20 @@
             "before": false
           }
         ],
-        "indent": [
-          "error",
-          2,
-          {
-            "SwitchCase": 1,
-            "ignoredNodes": ["CallExpression"]
-          }
-        ],
         "@typescript-eslint/type-annotation-spacing": "error",
-        "@babel/semi": "error"
-      },
-      "plugins": ["ngrx"]
+        "@babel/semi": "error",
+        "@typescript-eslint/no-explicit-any": "warn"
+      }
     },
     {
       "files": ["*.html"],
-      "extends": ["plugin:@angular-eslint/template/recommended"],
-      "rules": {}
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:@angular-eslint/template/accessibility"
+      ],
+      "rules": {
+        "@angular-eslint/template/prefer-self-closing-tags": ["error"]
+      }
     }
-  ],
-  "plugins": ["eslint-plugin-import", "@babel"]
+  ]
 }

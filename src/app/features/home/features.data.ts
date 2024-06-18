@@ -10,9 +10,9 @@ export const features: Feature[] = [
   {
     name: 'Angular',
     description: `The modern web developer's platform.`,
-    link: 'https://angular.io/',
+    link: 'https://angular.dev/',
     github: 'https://github.com/angular/angular',
-    docs: 'https://angular.io/docs',
+    docs: 'https://angular.dev/overview',
   },
   {
     name: 'NgRx',
@@ -29,11 +29,11 @@ export const features: Feature[] = [
     docs: 'https://rxjs.dev/guide/overview',
   },
   {
-    name: 'Taiga UI',
-    description: 'Angular UI Kit and components library for awesome people.',
-    link: 'https://taiga-ui.dev/',
-    github: 'https://github.com/TinkoffCreditSystems/taiga-ui',
-    docs: 'https://taiga-ui.dev/getting-started',
+    name: 'Angular Material',
+    description: 'Material Design components for Angular.',
+    link: 'https://material.angular.io/',
+    github: 'https://github.com/angular/components',
+    docs: 'https://material.angular.io/guide/getting-started',
   },
   {
     name: 'Tailwindcss',
@@ -47,7 +47,7 @@ export const features: Feature[] = [
     description: 'Faster startup time with lazy loaded feature modules.',
     link: null,
     github: null,
-    docs: 'https://angular.io/guide/router#lazy-loading-route-configuration',
+    docs: 'https://angular.dev/guide/routing/common-router-tasks#lazy-loading',
   },
   {
     name: 'Font Awesome 5',
@@ -78,14 +78,6 @@ export const features: Feature[] = [
     docs: 'https://prettier.io/docs/en/index.html',
   },
   {
-    name: 'In-memory Web API',
-    description: 'An in-memory web API for Angular demos and tests.',
-    link: null,
-    github:
-      'https://github.com/angular/angular/tree/master/packages/misc/angular-in-memory-web-api',
-    docs: 'https://angular.io/tutorial/toh-pt6',
-  },
-  {
     name: 'Lint Staged',
     description: 'Run linters on git staged files.',
     link: null,
@@ -108,11 +100,10 @@ export const features: Feature[] = [
     docs: null,
   },
   {
-    name: 'Standard Version',
-    description:
-      'Automate versioning and CHANGELOG generation, with semver.org and conventionalcommits.org.',
+    name: 'Release It',
+    description: 'Automate versioning and package publishing',
     link: null,
-    github: 'https://github.com/conventional-changelog/standard-version',
+    github: 'https://github.com/release-it/release-it',
     docs: null,
   },
   {

@@ -1,47 +1,17 @@
-<footer class="aa--grid aa--grid-cols-1 aa--gap-4 md:aa--grid-cols-2">
+<footer class="aa--grid aa--grid-cols-1 aa--gap-4 aa--px-6 aa--py-4 md:aa--grid-cols-2">
   <div class="aa--text-center md:aa--text-left">
-    <p class="aa--font-semibold">
+    <div class="aa--font-semibold">
       © {{ now | date: 'YYYY' }} - Made with ❤️&nbsp; & ☕️&nbsp; by Nikos Anifantis
-    </p>
-    <p>Version: {{ version }}</p>
+    </div>
+    <small>Version: {{ version }}</small>
   </div>
 
-  <div class="links aa--text-center md:aa--text-right">
-    <a
-      tuiLink
-      href="https://github.com/nikosanif"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <fa-icon [icon]="['fab', 'github']"></fa-icon>
-      <span>Github</span>
-    </a>
-    <a
-      tuiLink
-      href="https://nikosanif.medium.com/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <fa-icon [icon]="['fab', 'medium-m']"></fa-icon>
-      <span>Medium</span>
-    </a>
-    <a
-      tuiLink
-      href="https://twitter.com/nikosanif"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <fa-icon [icon]="['fab', 'twitter']"></fa-icon>
-      <span>Twitter</span>
-    </a>
-    <a
-      tuiLink
-      href="https://www.linkedin.com/in/nikosanifantis/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <fa-icon [icon]="['fab', 'linkedin-in']"></fa-icon>
-      <span>LinkedIn</span>
-    </a>
+  <div class="aa--text-center md:aa--text-right">
+    @for (link of personalLinks; track $index) {
+      <a mat-button href="{{ link.href }}" target="_blank" rel="noopener noreferrer">
+        <fa-icon [icon]="link.icon" />
+        <span class="aa--ml-2">{{ link.label }}</span>
+      </a>
+    }
   </div>
 </footer>

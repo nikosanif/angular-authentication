@@ -1,4 +1,14 @@
-export const USERS = [
+export interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  username: string;
+  password: string;
+  accessToken: string;
+  refreshToken: string;
+}
+
+export const USERS: User[] = [
   {
     id: 1,
     firstName: 'Admin',

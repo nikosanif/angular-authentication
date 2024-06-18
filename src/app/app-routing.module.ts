@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
-import { AuthGuardService } from './auth/guards';
+import { authGuard } from './auth';
 
 const routes: Routes = [
   {
@@ -11,24 +11,19 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./features/home/home.module').then(m => m.HomeModule),
+    loadComponent: () => import('./features/home').then(m => m.HomeComponent),
   },
   {
     path: 'about',
-    loadChildren: () => import('./features/about/about.module').then(m => m.AboutModule),
+    loadComponent: () => import('./features/about').then(m => m.AboutComponent),
   },
   {
     path: 'secured-feat',
-    canActivate: [AuthGuardService],
-    loadChildren: () =>
-      import('./features/secured-feat/secured-feat.module').then(
-        m => m.SecuredFeatModule
-      ),
+    canActivate: [authGuard],
+    loadComponent: () =>
+      import('./features/secured-feat').then(m => m.SecuredFeatComponent),
   },
-  {
-    path: '**',
-    redirectTo: 'home',
-  },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

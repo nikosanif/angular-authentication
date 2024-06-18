@@ -1,29 +1,49 @@
-import { Component } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { combineLatest } from 'rxjs';
 
 import { AuthFacade } from '../store/auth.facade';
 
 @Component({
   selector: 'aa-login',
+  standalone: true,
+  imports: [
+    AsyncPipe,
+    MatButtonModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+  ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+  private readonly authFacade = inject(AuthFacade);
+
   readonly loginForm = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],
+      nonNullable: true,
     }),
     password: new FormControl('', {
       validators: [Validators.required],
+      nonNullable: true,
     }),
   });
-  isLoading$ = this.authFacade.isLoadingLogin$;
-  showLoginError$ = this.authFacade.hasLoginError$;
 
-  constructor(private authFacade: AuthFacade) {}
+  readonly vm$ = combineLatest({
+    isLoading: this.authFacade.isLoadingLogin$,
+    showLoginError: this.authFacade.hasLoginError$,
+  });
 
   submit() {
     const { username, password } = this.loginForm.value;
-    this.authFacade.login(username, password);
+    this.authFacade.login(username as string, password as string);
   }
 }

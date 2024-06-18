@@ -1,99 +1,57 @@
 <header>
   <div class="aa--flex aa--items-center">
-    <!-- BEGIN: Menu Dropdown -->
-    <div class="aa--inline lg:aa--hidden">
-      <tui-hosted-dropdown [content]="dropdownMenu">
-        <button
-          tuiIconButton
-          type="button"
-          appearance="flat"
-          size="m"
-          class="aa--mr-2"
-          icon="tuiIconAlignJustifyLarge"
-        ></button>
-      </tui-hosted-dropdown>
-      <ng-template #dropdownMenu>
-        <tui-data-list role="menu">
-          <a
-            *ngFor="let item of menuItems"
-            #rla="routerLinkActive"
-            tuiOption
-            role="menuitemradio"
-            routerLinkActive
-            [attr.aria-checked]="rla.isActive"
-            [routerLink]="item.link"
-          >
-            {{ item.label }}
-            <tui-svg *ngIf="rla.isActive" src="tuiIconCheckLarge"></tui-svg>
-          </a>
-        </tui-data-list>
-      </ng-template>
-    </div>
-    <!-- END: Menu Dropdown -->
-
     <!-- BEGIN: Title -->
     <a routerLink="/home" class="aa--flex aa--items-center">
-      <img src="/assets/logo.svg" class="logo-icon" />
+      <img src="/assets/logo.svg" class="logo-icon" alt="Angular Authentication Logo" />
       <span class="aa--text-xl aa--font-semibold">
-        <span class="aa--hidden md:aa--inline">Angular Authentication</span>
-        <span class="aa--inline md:aa--hidden">Auth</span>
+        <span class="aa--hidden lg:aa--inline">Angular Authentication</span>
+        <span class="aa--inline lg:aa--hidden">Auth</span>
       </span>
     </a>
     <!-- END: Title -->
 
     <!-- BEGIN: Main menu items -->
-    <div class="menu-items aa--hidden lg:aa--inline">
-      <a
-        *ngFor="let item of menuItems"
-        tuiButton
-        size="m"
-        [routerLink]="item.link"
-        routerLinkActive="active"
-        #rla="routerLinkActive"
-        [appearance]="rla.isActive ? 'primary' : 'flat'"
-        [icon]="item.icon!"
-      >
-        {{ item.label }}
-      </a>
+    <div class="menu-items">
+      @for (item of menuItems; track $index) {
+        <a
+          mat-button
+          [routerLink]="item.link"
+          routerLinkActive="active"
+          #rla="routerLinkActive"
+          [class.aa--font-bold]="rla.isActive"
+          [color]="'error'"
+        >
+          <fa-icon [icon]="item.icon" />
+          <span class="aa--ml-2 aa--hidden lg:aa--inline">{{ item.label }}</span>
+        </a>
+      }
     </div>
     <!-- END: Main menu items -->
   </div>
 
   <div class="aa--flex aa--items-center">
-    <!-- BEGIN: Auth user menu -->
-    <div *ngIf="authUser$ | async as user; else login">
-      <tui-hosted-dropdown tuiDropdownAlign="left" [content]="userDropdown">
-        <tui-avatar
-          [text]="user.firstName + ' ' + user.lastName"
-          class="aa--cursor-pointer"
-        ></tui-avatar>
-      </tui-hosted-dropdown>
-      <ng-template #userDropdown>
-        <tui-data-list role="menu">
-          <tui-opt-group [label]="user.firstName + ' ' + user.lastName">
-            <button tuiOption (click)="logout()">
-              <span>
-                <tui-svg class="aa--mr-2" src="tuiIconLogoutLarge"></tui-svg>
-                Logout
-              </span>
-            </button>
-          </tui-opt-group>
-        </tui-data-list>
-      </ng-template>
-    </div>
+    @if (authUser$ | async; as user) {
+      <aa-avatar
+        [text]="user.firstName + ' ' + user.lastName"
+        [matMenuTriggerFor]="userMenu"
+        class="aa--cursor-pointer"
+      />
 
-    <ng-template #login>
-      <a
-        tuiButton
-        size="m"
-        routerLink="/login"
-        [appearance]="'outline'"
-        icon="tuiIconUser"
-      >
-        Login
+      <mat-menu #userMenu="matMenu">
+        <button mat-menu-item type="button" disabled>
+          {{ user.firstName + ' ' + user.lastName }}
+        </button>
+        <button mat-menu-item type="button" (click)="logout()">
+          <fa-icon class="aa--mr-2" [icon]="'right-from-bracket'" />
+          Sign out
+        </button>
+      </mat-menu>
+    } @else {
+      <a mat-stroked-button routerLink="/login">
+        <fa-icon [icon]="'user'" />
+        <span class="aa--ml-2 aa--hidden lg:aa--inline">Login</span>
       </a>
-    </ng-template>
-    <!-- END: Auth user menu -->
+    }
 
     <!-- BEGIN: Github link -->
     <a
@@ -101,9 +59,9 @@
       target="_blank"
       rel="noopener noreferrer"
       class="aa--ml-4 aa--text-2xl"
-      [tuiHint]="'Source code'"
+      [matTooltip]="'Source code'"
     >
-      <fa-icon [icon]="['fab', 'github']"></fa-icon>
+      <fa-icon [icon]="['fab', 'github']" />
     </a>
     <!-- END: Github link -->
   </div>

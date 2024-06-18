@@ -61,7 +61,7 @@ const reducer = createReducer(
       isLoadingLogin: false,
       accessTokenStatus: TokenStatus.INVALID,
       refreshTokenStatus: TokenStatus.INVALID,
-      hasLoginError: action.type === '[Auth] Login Failure' && !!action.error,
+      hasLoginError: action.type === AuthActions.loginFailure.type && !!action.error,
     })
   ),
 

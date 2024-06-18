@@ -1,12 +1,23 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <title>AngularAuthentication</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#5b0fff" />
+    <meta name="theme-color" content="#7d01fa" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- BEGIN: Angular Material -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <!-- END: Angular Material -->
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -48,7 +59,8 @@
     </script>
     <!-- END: Google Analytics -->
   </head>
-  <body>
+  <body class="mat-typography">
+    <!-- eslint-disable-next-line @angular-eslint/template/prefer-self-closing-tags -->
     <aa-root></aa-root>
   </body>
 </html>

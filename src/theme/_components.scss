@@ -1,38 +1,25 @@
-// Card styles
-.card {
-  border-radius: 8px;
-  padding: 20px;
-  background-color: white;
-
-  .card-header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 12px;
-
-    .card-icon {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      width: 32px;
-      height: 32px;
-      border-radius: 100%;
-      font-size: 1.4rem;
-      font-weight: 600;
-      background-color: #dedede;
-      margin-right: 12px;
-    }
-
-    .card-title {
-      font-size: 1.25rem;
-      line-height: 28px;
-    }
-  }
-}
-
 // Section styles
 section {
-  @apply aa--mt-4
-    aa--mb-12
-    lg:aa--mb-16;
+  @apply aa--mb-12 aa--mt-4 lg:aa--mb-16;
+}
+
+// Alert styles
+.alert {
+  @apply aa--mb-4 aa--rounded-lg aa--p-4;
+
+  &.alert--success {
+    @apply aa--bg-green-100 aa--text-green-800;
+  }
+
+  &.alert--error {
+    @apply aa--bg-red-100 aa--text-red-800;
+  }
+
+  &.alert--info {
+    @apply aa--bg-blue-100 aa--text-blue-800;
+  }
+
+  &.alert--warning {
+    @apply aa--bg-yellow-100 aa--text-yellow-800;
+  }
 }

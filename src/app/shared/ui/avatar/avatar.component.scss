@@ -1,0 +1,20 @@
+$size: 2.5rem;
+$radius: 0.75rem;
+
+:host {
+  position: relative;
+  display: flex;
+  flex-shrink: 0;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  overflow: hidden;
+  font-weight: 500;
+  border-radius: $radius;
+  width: $size;
+  height: $size;
+
+  @apply aa--bg-secondary aa--text-primary;
+}

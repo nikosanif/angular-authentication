@@ -1,21 +1,45 @@
-import { NgModule } from '@angular/core';
+import { NgModule, inject } from '@angular/core';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import {
   faGithub,
   faMediumM,
-  faTwitter,
+  faXTwitter,
   faLinkedinIn,
 } from '@fortawesome/free-brands-svg-icons';
-import { faStar, faBook, faLink } from '@fortawesome/free-solid-svg-icons';
+import {
+  faStar,
+  faBook,
+  faLink,
+  faLock,
+  faUser,
+  faRightFromBracket,
+  faHome,
+  faInfoCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
   imports: [FontAwesomeModule],
   exports: [FontAwesomeModule],
 })
 export class IconModule {
-  private icons = [faGithub, faMediumM, faTwitter, faLinkedinIn, faStar, faBook, faLink];
+  private readonly faIconLibrary = inject(FaIconLibrary);
 
-  constructor(faIconLibrary: FaIconLibrary) {
-    faIconLibrary.addIcons(...this.icons);
+  private icons = [
+    faGithub,
+    faMediumM,
+    faXTwitter,
+    faLinkedinIn,
+    faStar,
+    faBook,
+    faLink,
+    faLock,
+    faUser,
+    faRightFromBracket,
+    faHome,
+    faInfoCircle,
+  ];
+
+  constructor() {
+    this.faIconLibrary.addIcons(...this.icons);
   }
 }

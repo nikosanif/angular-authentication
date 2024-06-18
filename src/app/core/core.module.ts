@@ -1,26 +1,17 @@
-import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { environment } from '../../environments/environment';
-import { AuthModule } from '../auth/auth.module';
-import { authInterceptorProviders } from '../auth/interceptors';
-import { FakeApiService } from './fake-api';
+import { AuthModule } from '../auth';
+
+import { fakeApiProvider } from './fake-api';
 
 @NgModule({
   imports: [
-    // Angular
-    CommonModule,
-    HttpClientModule,
-
-    // Fake Auth API: Remove this in real apps
-    HttpClientInMemoryWebApiModule.forRoot(FakeApiService),
-
     // NgRx
     StoreModule.forRoot({}, {}),
     StoreRouterConnectingModule.forRoot(),
@@ -34,7 +25,10 @@ import { FakeApiService } from './fake-api';
   ],
   providers: [
     // Interceptors
-    ...authInterceptorProviders,
+    provideHttpClient(withInterceptorsFromDi()),
+
+    // FIXME: remove it in real app
+    fakeApiProvider,
   ],
 })
 export class CoreModule {

@@ -1,4 +1,14 @@
-package.json
-package-lock.json
+# Add files here to ignore them from prettier formatting
+
+# Default
 /dist
-/.angular
+/coverage
+/tmp
+
+# Plugins
+.angular
+.eslintcache
+
+# App
+package-lock.json
+package.json
