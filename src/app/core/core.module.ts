@@ -6,7 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { environment } from '../../environments/environment';
-import { AuthModule, authInterceptorProviders } from '../auth';
+import { AuthModule } from '../auth';
 
 import { fakeApiProvider } from './fake-api';
 
@@ -26,7 +26,6 @@ import { fakeApiProvider } from './fake-api';
   providers: [
     // Interceptors
     provideHttpClient(withInterceptorsFromDi()),
-    ...authInterceptorProviders,
 
     // FIXME: remove it in real app
     fakeApiProvider,

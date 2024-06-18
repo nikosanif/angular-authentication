@@ -6,7 +6,6 @@ export interface Feature {
   docs: string | null;
 }
 
-// TODO: change standard-version to release-it
 export const features: Feature[] = [
   {
     name: 'Angular',
@@ -101,11 +100,10 @@ export const features: Feature[] = [
     docs: null,
   },
   {
-    name: 'Standard Version',
-    description:
-      'Automate versioning and CHANGELOG generation, with semver.org and conventionalcommits.org.',
+    name: 'Release It',
+    description: 'Automate versioning and package publishing',
     link: null,
-    github: 'https://github.com/conventional-changelog/standard-version',
+    github: 'https://github.com/release-it/release-it',
     docs: null,
   },
   {

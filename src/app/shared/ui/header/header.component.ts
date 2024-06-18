@@ -13,7 +13,7 @@ import { IconModule } from '../icon';
 interface MenuItem {
   link: string;
   label: string;
-  icon: IconProp | null;
+  icon: IconProp;
 }
 
 @Component({
@@ -36,11 +36,11 @@ export class HeaderComponent {
   private readonly authFacade = inject(AuthFacade);
 
   readonly menuItems: MenuItem[] = [
-    { link: '/home', label: 'Home', icon: null },
-    { link: '/about', label: 'About', icon: null },
+    { link: '/home', label: 'Home', icon: 'home' },
+    { link: '/about', label: 'About', icon: 'info-circle' },
     { link: '/secured-feat', label: 'Secured Feature', icon: 'lock' },
   ];
-  readonly authUser$ = this.authFacade.user$;
+  readonly authUser$ = this.authFacade.authUser$;
 
   logout() {
     this.authFacade.logout();

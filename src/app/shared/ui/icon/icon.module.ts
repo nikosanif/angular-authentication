@@ -13,6 +13,8 @@ import {
   faLock,
   faUser,
   faRightFromBracket,
+  faHome,
+  faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
 @NgModule({
@@ -33,6 +35,8 @@ export class IconModule {
     faLock,
     faUser,
     faRightFromBracket,
+    faHome,
+    faInfoCircle,
   ];
 
   constructor() {

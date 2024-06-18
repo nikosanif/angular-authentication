@@ -1,8 +1,10 @@
-@if (authUser$ | async; as user) {
+@if (vm$ | async; as vm) {
   <section>
     <h1>
-      {{ greeting }},
-      <span class="aa--text-primary">{{ user.firstName }} {{ user.lastName }}</span>
+      {{ vm.greeting }},
+      <span class="aa--text-primary">
+        {{ vm.authUser?.firstName }} {{ vm.authUser?.lastName }}
+      </span>
     </h1>
 
     <p class="aa--text-xl">
@@ -23,7 +25,7 @@
           only! Feel free to logout and login again using one of the following accounts.
         </div>
 
-        <table mat-table [dataSource]="dataSource" class="aa--w-full">
+        <table mat-table [dataSource]="vm.users" class="aa--w-full">
           <!-- Id Column -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Id</th>

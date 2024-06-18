@@ -8,8 +8,7 @@ import * as AuthSelectors from './auth.selectors';
 export class AuthFacade {
   private readonly store = inject(Store);
 
-  readonly auth$ = this.store.select(AuthSelectors.selectAuth);
-  readonly user$ = this.store.select(AuthSelectors.selectAuthUser);
+  readonly authUser$ = this.store.select(AuthSelectors.selectAuthUser);
   readonly isLoggedIn$ = this.store.select(AuthSelectors.selectIsLoggedIn);
   readonly isLoadingLogin$ = this.store.select(AuthSelectors.selectIsLoadingLogin);
   readonly hasLoginError$ = this.store.select(AuthSelectors.selectLoginError);

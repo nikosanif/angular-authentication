@@ -13,8 +13,7 @@
     "lint": "ng lint",
     "format:check": "prettier --check .",
     "format:write": "prettier --write .",
-    "release": "standard-version",
-    "analyze": "npm run build:prod -- --stats-json --named-chunks && webpack-bundle-analyzer ./dist/angular-authentication/stats.json"
+    "release": "release-it"
   },
   "private": true,
   "dependencies": {
@@ -54,6 +53,7 @@
     "@babel/eslint-plugin": "^7.24.7",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/node": "^20.14.2",
     "@typescript-eslint/eslint-plugin": "^7.13.0",
     "@typescript-eslint/parser": "^7.13.0",
@@ -64,28 +64,49 @@
     "lint-staged": "^15.2.7",
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.4",
-    "standard-version": "^9.5.0",
-    "typescript": "~5.4.5",
-    "webpack-bundle-analyzer": "^4.10.2"
+    "release-it": "^17.3.0",
+    "typescript": "~5.4.5"
   },
   "lint-staged": {
     "*.{js,ts,html,css}": "eslint --cache",
     "*": "prettier --list-different --ignore-unknown"
   },
-  "standard-version": {
-    "types": [
-      {
-        "type": "feat",
-        "section": "Features"
-      },
-      {
-        "type": "fix",
-        "section": "Bug Fixes"
-      },
-      {
-        "type": "build",
-        "section": "Build System"
+  "release-it": {
+    "git": {
+      "commitMessage": "chore(release): ${version}",
+      "requireBranch": ["main"],
+      "tag": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "github": {
+      "release": true,
+      "releaseName": "v${version}"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "header": "# Changelog",
+        "ignoreRecommendedBump": true,
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "build",
+              "section": "Build System"
+            }
+          ]
+        }
       }
-    ]
+    }
   }
 }

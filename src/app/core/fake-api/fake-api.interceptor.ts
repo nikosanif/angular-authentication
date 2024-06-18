@@ -19,7 +19,7 @@ export class FakeApiInterceptor implements HttpInterceptor {
     console.table({ method, url, body });
 
     return new FakeApi(request).handleRequest().pipe(
-      delay(1000), // delay to simulate server latency
+      delay(200), // delay to simulate server latency
       tap(response => {
         const { status, url, body } = response;
         console.log('[FakeApiInterceptor] Response success ✅');

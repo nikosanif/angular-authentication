@@ -1,14 +1,11 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import {
-  ReactiveFormsModule,
-  UntypedFormControl,
-  UntypedFormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { combineLatest } from 'rxjs';
 
 import { AuthFacade } from '../store/auth.facade';
 
@@ -17,10 +14,11 @@ import { AuthFacade } from '../store/auth.facade';
   standalone: true,
   imports: [
     AsyncPipe,
-    ReactiveFormsModule,
+    MatButtonModule,
+    MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule,
+    ReactiveFormsModule,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
@@ -28,20 +26,24 @@ import { AuthFacade } from '../store/auth.facade';
 export class LoginComponent {
   private readonly authFacade = inject(AuthFacade);
 
-  readonly loginForm = new UntypedFormGroup({
-    username: new UntypedFormControl('', {
+  readonly loginForm = new FormGroup({
+    username: new FormControl('', {
       validators: [Validators.required],
+      nonNullable: true,
     }),
-    password: new UntypedFormControl('', {
+    password: new FormControl('', {
       validators: [Validators.required],
+      nonNullable: true,
     }),
   });
 
-  readonly isLoading$ = this.authFacade.isLoadingLogin$;
-  readonly showLoginError$ = this.authFacade.hasLoginError$;
+  readonly vm$ = combineLatest({
+    isLoading: this.authFacade.isLoadingLogin$,
+    showLoginError: this.authFacade.hasLoginError$,
+  });
 
   submit() {
     const { username, password } = this.loginForm.value;
-    this.authFacade.login(username, password);
+    this.authFacade.login(username as string, password as string);
   }
 }

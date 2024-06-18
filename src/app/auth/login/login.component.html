@@ -1,36 +1,40 @@
-<div class="aa--container aa--flex aa--justify-center">
-  <div class="form-wrapper">
-    <h1>
-      <span class="aa--font-semibold aa--text-primary">Login</span>
-      your account
-    </h1>
+@if (vm$ | async; as vm) {
+  <div class="aa--container aa--flex aa--justify-center">
+    <div class="form-wrapper">
+      <h1>
+        <span class="aa--text-primary">Login</span>
+        your account
+      </h1>
 
-    <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
-      <div class="alert alert--info">
-        Use account
-        <b>admin</b>
-        and password
-        <b>demo</b>
-        to continue.
-      </div>
+      <mat-card>
+        <mat-card-content>
+          <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
+            <div class="alert alert--info">
+              Use account
+              <b>admin</b>
+              and password
+              <b>demo</b>
+              to continue.
+            </div>
 
-      @if (showLoginError$ | async) {
-        <div class="alert alert--error">Ooops! The login details are incorrect.</div>
-      }
+            @if (vm.showLoginError) {
+              <div class="alert alert--error">Ooops! Invalid username or password.</div>
+            }
 
-      <mat-form-field>
-        <mat-label>Username</mat-label>
-        <input matInput type="text" formControlName="username" />
-      </mat-form-field>
+            <mat-form-field>
+              <mat-label>Username</mat-label>
+              <input matInput type="text" formControlName="username" />
+            </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Password</mat-label>
-        <input matInput type="password" formControlName="password" />
-      </mat-form-field>
+            <mat-form-field>
+              <mat-label>Password</mat-label>
+              <input matInput type="password" formControlName="password" />
+            </mat-form-field>
 
-      <button mat-flat-button [disabled]="(isLoading$ | async)!" type="submit">
-        Login
-      </button>
-    </form>
+            <button mat-flat-button [disabled]="vm.isLoading" type="submit">Login</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
   </div>
-</div>
+}

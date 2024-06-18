@@ -2,6 +2,7 @@ import { AsyncPipe } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatTableModule } from '@angular/material/table';
+import { combineLatest, of } from 'rxjs';
 
 import { AuthFacade } from '../../auth';
 import { USERS } from '../../core/fake-api';
@@ -15,8 +16,11 @@ import { GreetingUtil } from '../../shared/util';
 export class SecuredFeatComponent {
   private readonly authFacade = inject(AuthFacade);
 
-  readonly greeting = GreetingUtil.greet();
-  readonly authUser$ = this.authFacade.user$;
   readonly displayedColumns: string[] = ['id', 'name', 'username', 'password'];
-  readonly dataSource = USERS;
+
+  readonly vm$ = combineLatest({
+    greeting: of(GreetingUtil.greet()),
+    authUser: this.authFacade.authUser$,
+    users: of(USERS),
+  });
 }

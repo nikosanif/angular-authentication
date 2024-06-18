@@ -4,8 +4,8 @@
     <a routerLink="/home" class="aa--flex aa--items-center">
       <img src="/assets/logo.svg" class="logo-icon" alt="Angular Authentication Logo" />
       <span class="aa--text-xl aa--font-semibold">
-        <span class="aa--hidden md:aa--inline">Angular Authentication</span>
-        <span class="aa--inline md:aa--hidden">Auth</span>
+        <span class="aa--hidden lg:aa--inline">Angular Authentication</span>
+        <span class="aa--inline lg:aa--hidden">Auth</span>
       </span>
     </a>
     <!-- END: Title -->
@@ -19,11 +19,10 @@
           routerLinkActive="active"
           #rla="routerLinkActive"
           [class.aa--font-bold]="rla.isActive"
+          [color]="'error'"
         >
-          @if (item.icon) {
-            <fa-icon class="aa--mr-1" [icon]="item.icon" />
-          }
-          {{ item.label }}
+          <fa-icon [icon]="item.icon" />
+          <span class="aa--ml-2 aa--hidden lg:aa--inline">{{ item.label }}</span>
         </a>
       }
     </div>
@@ -49,8 +48,8 @@
       </mat-menu>
     } @else {
       <a mat-stroked-button routerLink="/login">
-        <fa-icon class="aa--mr-2" [icon]="'user'" />
-        Login
+        <fa-icon [icon]="'user'" />
+        <span class="aa--ml-2 aa--hidden lg:aa--inline">Login</span>
       </a>
     }
 
