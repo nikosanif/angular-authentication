@@ -1,11 +1,14 @@
 import { Injectable } from '@angular/core';
 
-declare const gtag: any;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Gtag = any;
+
+declare const gtag: Gtag;
 const GOOGLE_ANALYTICS_ID = 'UA-217340656-1';
 
 @Injectable({ providedIn: 'root' })
 export class GoogleAnalyticsService {
-  protected gtag: any;
+  protected gtag: Gtag;
 
   constructor() {
     if (typeof gtag !== 'undefined') {
