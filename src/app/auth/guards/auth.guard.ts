@@ -18,7 +18,7 @@ export const authGuard = (route: ActivatedRouteSnapshot, state: RouterStateSnaps
         ? // If the user is logged in, allow the route
           true
         : // Redirect to login page with return URL
-          createUrlTreeFromSnapshot(route, ['/login'], { returnUrl: state.url })
+          createUrlTreeFromSnapshot(route, ['/auth/login'], { returnUrl: state.url })
     )
   );
 };

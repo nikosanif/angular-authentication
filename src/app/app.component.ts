@@ -1,19 +1,25 @@
+import { AsyncPipe } from '@angular/common';
 import { Component, DestroyRef, OnInit, inject } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
-import { ConfigService, GoogleAnalyticsService } from '../core/services';
+import { AuthFacade } from './auth';
+import { ConfigService, GoogleAnalyticsService } from './core/services';
+import { FooterComponent } from './shared/ui/footer';
+import { HeaderComponent } from './shared/ui/header';
 
 @Component({
   selector: 'aa-root',
+  standalone: true,
+  imports: [AsyncPipe, RouterOutlet, HeaderComponent, FooterComponent],
   template: `
     <div class="content">
-      <aa-header />
+      <aa-header [authUser]="authUser$ | async" (logout)="onLogout()" />
 
       <div class="main-content">
         <main><router-outlet /></main>
-        <aa-footer />
+        <aa-footer [version]="version" />
       </div>
     </div>
   `,
@@ -22,13 +28,21 @@ import { ConfigService, GoogleAnalyticsService } from '../core/services';
 export class AppComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
+  private readonly authFacade = inject(AuthFacade);
   private readonly configService = inject(ConfigService);
   private readonly googleAnalyticsService = inject(GoogleAnalyticsService);
+
+  readonly version = this.configService.getVersion();
+  readonly authUser$ = this.authFacade.authUser$;
 
   ngOnInit() {
     if (this.configService.isProd()) {
       this.setupGoogleAnalytics();
     }
+  }
+
+  protected onLogout() {
+    this.authFacade.logout();
   }
 
   private setupGoogleAnalytics() {
