@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0 (2024-10-31)
+
+- feat(app): towards Angular Zoneless (#9) ([0525298](https://github.com/nikosanif/angular-authentication/commit/0525298)), closes [#9](https://github.com/nikosanif/angular-authentication/issues/9)
+
 ## [2.0.0](https://github.com/nikosanif/angular-authentication/compare/v1.0.1...v2.0.0) (2024-06-18)
 
 ### Features
