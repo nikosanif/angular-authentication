@@ -47,7 +47,7 @@
   </p>
 
   <div class="aa--grid aa--grid-cols-1 aa--gap-8 md:aa--grid-cols-3 lg:aa--grid-cols-4">
-    @for (feature of features; track $index) {
+    @for (feature of features(); track $index) {
       <mat-card>
         <mat-card-header>
           <mat-card-title>{{ feature.name }}</mat-card-title>
@@ -102,8 +102,8 @@
   </div>
 
   <div class="aa--mt-6 aa--flex aa--justify-center">
-    <button mat-raised-button (click)="showAllFeatures = !showAllFeatures">
-      Show {{ showAllFeatures ? 'less' : 'more' }}
+    <button mat-raised-button (click)="toggleFeatures()">
+      {{ showFeaturesLabel() }}
     </button>
   </div>
 </section>

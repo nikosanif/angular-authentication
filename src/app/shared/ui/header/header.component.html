@@ -18,7 +18,6 @@
           [routerLink]="item.link"
           routerLinkActive="active"
           #rla="routerLinkActive"
-          [class.aa--font-bold]="rla.isActive"
           [color]="'error'"
         >
           <fa-icon [icon]="item.icon" />
@@ -41,7 +40,7 @@
         <button mat-menu-item type="button" disabled>
           {{ user.firstName + ' ' + user.lastName }}
         </button>
-        <button mat-menu-item type="button" (click)="logout.next()">
+        <button mat-menu-item type="button" (click)="logout.emit()">
           <fa-icon class="aa--mr-2" [icon]="'right-from-bracket'" />
           Sign out
         </button>

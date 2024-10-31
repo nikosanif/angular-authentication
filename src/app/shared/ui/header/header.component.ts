@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -34,8 +34,7 @@ export class HeaderComponent {
   @Input({ required: true })
   authUser: AuthUser | null | undefined = null;
 
-  @Output()
-  readonly logout = new EventEmitter<void>();
+  readonly logout = output<void>();
 
   readonly menuItems: MenuItem[] = [
     { link: '/home', label: 'Home', icon: 'home' },

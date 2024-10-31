@@ -21,5 +21,9 @@ header {
 
   > a {
     @apply aa--mx-1;
+
+    &.active {
+      @apply aa--bg-secondary;
+    }
   }
 }

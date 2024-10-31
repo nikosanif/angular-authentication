@@ -22,6 +22,20 @@ export const features: Feature[] = [
     docs: 'https://ngrx.io/docs',
   },
   {
+    name: 'Standalone Components',
+    description: 'A simplified way to build Angular applications.',
+    link: null,
+    github: null,
+    docs: 'https://angular.dev/guide/components',
+  },
+  {
+    name: 'Zoneless',
+    description: 'Angular without ZoneJS.',
+    link: null,
+    github: null,
+    docs: 'https://angular.dev/guide/experimental/zoneless',
+  },
+  {
     name: 'RxJS',
     description: 'Reactive Extensions Library for JavaScript.',
     link: 'https://rxjs.dev/',
