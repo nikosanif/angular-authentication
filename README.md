@@ -59,7 +59,10 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 
 ### Other Features
 
-- Lazy loading of Angular modules
+- Zoneless Angular application
+- Standalone Angular components
+- Angular Material UI components
+- Lazy loading of Angular components
 - API requests with `@ngrx/effects`
 - Responsive design
 - Custom In-memory Web API using interceptors
@@ -74,7 +77,7 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
   - ESLint
   - Prettier
   - Husky
-  - standard-vesrion
+  - release-it
 
 ## High-level Design
 
@@ -83,24 +86,21 @@ Below is the high-level structure of the application.
 ```sh
 ./src
 ├── app
-│   ├── app # root app component
-│   │   ├── app.component.html
-│   │   ├── app.component.scss
-│   │   └── app.component.ts
-│   │
-│   ├── app-routing.module.ts
-│   ├── app.module.ts
+│   ├── app.component.scss
+│   ├── app.component.ts
+│   ├── app.config.ts
+│   ├── app.routes.ts
 │   │
 │   ├── auth # includes authentication logic
-│   │   ├── auth.module.ts
+│   │   ├── auth.routes.ts
 │   │   ├── auth.service.ts
 │   │   ├── guards
+│   │   ├── index.ts
 │   │   ├── interceptors
 │   │   ├── login
 │   │   └── store
 │   │
 │   ├── core # includes core utilities
-│   │   ├── core.module.ts
 │   │   ├── fake-api
 │   │   └── services
 │   │
@@ -109,22 +109,24 @@ Below is the high-level structure of the application.
 │   │   ├── home
 │   │   └── secured-feat
 │   │
-│   └── shared # shared UI modules and utilities
-│       ├── ui
-│       └── util
+│   └── shared
+│       ├── ui # UI components
+│       │   ├── avatar
+│       │   ├── footer
+│       │   ├── header
+│       │   └── icon
+│       │
+│       └── util # utility functions
 │
-├── assets
-│   ├── ...
+├── environments # environment configurations
 │
-├── environments
-│   ├── environment.prod.ts
-│   └── environment.ts
-│
-├── ...
+├── index.html
+├── main.ts
+├── styles.scss
 │
 └── theme # global theme styles
     ├── _components.scss
-    ├── _typography.scss
+    ├── _material.scss
     └── index.scss
 ```
 
