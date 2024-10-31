@@ -1,12 +1,11 @@
-import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Input, output } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { AuthFacade } from '../../../auth';
+import { AuthUser } from '../../../auth';
 import { AvatarComponent } from '../avatar';
 import { IconModule } from '../icon';
 
@@ -20,7 +19,6 @@ interface MenuItem {
   selector: 'aa-header',
   standalone: true,
   imports: [
-    AsyncPipe,
     AvatarComponent,
     IconModule,
     MatButtonModule,
@@ -33,16 +31,14 @@ interface MenuItem {
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  private readonly authFacade = inject(AuthFacade);
+  @Input({ required: true })
+  authUser: AuthUser | null | undefined = null;
+
+  readonly logout = output<void>();
 
   readonly menuItems: MenuItem[] = [
     { link: '/home', label: 'Home', icon: 'home' },
     { link: '/about', label: 'About', icon: 'info-circle' },
     { link: '/secured-feat', label: 'Secured Feature', icon: 'lock' },
   ];
-  readonly authUser$ = this.authFacade.authUser$;
-
-  logout() {
-    this.authFacade.logout();
-  }
 }

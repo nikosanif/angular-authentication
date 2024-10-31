@@ -1,6 +1,11 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import * as AuthActions from './auth.actions';
+import {
+  AuthUserActions,
+  LoginActions,
+  LogoutAction,
+  RefreshTokenActions,
+} from './auth.actions';
 import { AuthState, TokenStatus } from './auth.models';
 
 export const AUTH_FEATURE_KEY = 'auth';
@@ -23,7 +28,7 @@ const reducer = createReducer(
 
   // Login
   on(
-    AuthActions.loginRequest,
+    LoginActions.request,
     (state): AuthState => ({
       ...state,
       accessTokenStatus: TokenStatus.VALIDATING,
@@ -34,7 +39,7 @@ const reducer = createReducer(
 
   // Refresh token
   on(
-    AuthActions.refreshTokenRequest,
+    RefreshTokenActions.request,
     (state): AuthState => ({
       ...state,
       refreshTokenStatus: TokenStatus.VALIDATING,
@@ -43,8 +48,8 @@ const reducer = createReducer(
 
   // Login & Refresh token
   on(
-    AuthActions.loginSuccess,
-    AuthActions.refreshTokenSuccess,
+    LoginActions.success,
+    RefreshTokenActions.success,
     (state): AuthState => ({
       ...state,
       isLoggedIn: true,
@@ -54,20 +59,20 @@ const reducer = createReducer(
     })
   ),
   on(
-    AuthActions.loginFailure,
-    AuthActions.refreshTokenFailure,
+    LoginActions.failure,
+    RefreshTokenActions.failure,
     (state, action): AuthState => ({
       ...state,
       isLoadingLogin: false,
       accessTokenStatus: TokenStatus.INVALID,
       refreshTokenStatus: TokenStatus.INVALID,
-      hasLoginError: action.type === AuthActions.loginFailure.type && !!action.error,
+      hasLoginError: action.type === LoginActions.failure.type && !!action.error,
     })
   ),
 
   // Logout
   on(
-    AuthActions.logout,
+    LogoutAction,
     (): AuthState => ({
       ...initialState,
     })
@@ -75,14 +80,14 @@ const reducer = createReducer(
 
   // Auth user
   on(
-    AuthActions.getAuthUserSuccess,
+    AuthUserActions.success,
     (state, action): AuthState => ({
       ...state,
       user: action.user,
     })
   ),
   on(
-    AuthActions.getAuthUserFailure,
+    AuthUserActions.failure,
     (): AuthState => ({
       ...initialState,
     })

@@ -1,9 +1,8 @@
 import { DatePipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
-import { ConfigService } from '../../../core/services';
 import { IconModule } from '../icon';
 
 interface PersonalLink {
@@ -19,10 +18,10 @@ interface PersonalLink {
   templateUrl: './footer.component.html',
 })
 export class FooterComponent {
-  private readonly configService = inject(ConfigService);
+  @Input({ required: true })
+  version = '';
 
   readonly now = new Date();
-  readonly version = this.configService.getVersion();
   readonly personalLinks: PersonalLink[] = [
     {
       label: 'GitHub',

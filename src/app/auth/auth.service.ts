@@ -6,7 +6,7 @@ import { filter, take } from 'rxjs/operators';
 
 import { ConfigService, TokenStorageService } from '../core/services';
 
-import * as AuthActions from './store/auth.actions';
+import { RefreshTokenActions } from './store/auth.actions';
 import { AuthState, AuthUser, TokenStatus } from './store/auth.models';
 import * as AuthSelectors from './store/auth.selectors';
 
@@ -17,7 +17,7 @@ export interface AccessData {
   refresh_token: string;
 }
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly store = inject(Store);
   private readonly http = inject(HttpClient);
@@ -35,7 +35,7 @@ export class AuthService {
    * @returns {Promise<AuthState>}
    */
   init(): Promise<AuthState> {
-    this.store.dispatch(AuthActions.refreshTokenRequest());
+    this.store.dispatch(RefreshTokenActions.request());
 
     const authState$ = this.store.select(AuthSelectors.selectAuth).pipe(
       filter(

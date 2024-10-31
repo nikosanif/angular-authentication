@@ -7,7 +7,12 @@ import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
 import { TokenStorageService } from '../../core/services';
 import { AuthService } from '../auth.service';
 
-import * as AuthActions from './auth.actions';
+import {
+  AuthUserActions,
+  LoginActions,
+  LogoutAction,
+  RefreshTokenActions,
+} from './auth.actions';
 
 @Injectable()
 export class AuthEffects {
@@ -19,16 +24,16 @@ export class AuthEffects {
 
   readonly login$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.loginRequest),
+      ofType(LoginActions.request),
       exhaustMap(credentials =>
         this.authService.login(credentials.username, credentials.password).pipe(
           map(data => {
             // save tokens
             this.tokenStorageService.saveTokens(data.access_token, data.refresh_token);
             // trigger login success action
-            return AuthActions.loginSuccess();
+            return LoginActions.success();
           }),
-          catchError(error => of(AuthActions.loginFailure({ error })))
+          catchError(error => of(LoginActions.failure({ error })))
         )
       )
     );
@@ -36,13 +41,13 @@ export class AuthEffects {
 
   readonly onLoginSuccess$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.loginSuccess),
+      ofType(LoginActions.success),
       map(() => {
         // redirect to return url or home
         this.router.navigateByUrl(
           this.activatedRoute.snapshot.queryParams['returnUrl'] || '/'
         );
-        return AuthActions.getAuthUserRequest();
+        return AuthUserActions.request();
       })
     );
   });
@@ -50,7 +55,7 @@ export class AuthEffects {
   readonly logout$ = createEffect(
     () => {
       return this.actions$.pipe(
-        ofType(AuthActions.logout),
+        ofType(LogoutAction),
         exhaustMap(() => {
           this.router.navigateByUrl('/');
           return this.authService
@@ -64,11 +69,11 @@ export class AuthEffects {
 
   readonly getUser$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.refreshTokenSuccess, AuthActions.getAuthUserRequest),
+      ofType(RefreshTokenActions.success, AuthUserActions.request),
       exhaustMap(() =>
         this.authService.getAuthUser().pipe(
-          map(user => AuthActions.getAuthUserSuccess({ user })),
-          catchError(() => of(AuthActions.getAuthUserFailure()))
+          map(user => AuthUserActions.success({ user })),
+          catchError(() => of(AuthUserActions.failure()))
         )
       )
     );
@@ -76,16 +81,16 @@ export class AuthEffects {
 
   readonly refreshToken$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(AuthActions.refreshTokenRequest),
+      ofType(RefreshTokenActions.request),
       exhaustMap(() =>
         this.authService.refreshToken().pipe(
           map(data => {
             // save tokens
             this.tokenStorageService.saveTokens(data.access_token, data.refresh_token);
             // trigger refresh token success action
-            return AuthActions.refreshTokenSuccess();
+            return RefreshTokenActions.success();
           }),
-          catchError(() => of(AuthActions.refreshTokenFailure()))
+          catchError(() => of(RefreshTokenActions.failure()))
         )
       )
     );
@@ -94,10 +99,8 @@ export class AuthEffects {
   readonly onLoginOrRefreshTokenFailure$ = createEffect(
     () => {
       return this.actions$.pipe(
-        ofType(AuthActions.loginFailure, AuthActions.refreshTokenFailure),
-        tap(() => {
-          this.tokenStorageService.removeTokens();
-        })
+        ofType(LoginActions.failure, RefreshTokenActions.failure),
+        tap(() => this.tokenStorageService.removeTokens())
       );
     },
     { dispatch: false }

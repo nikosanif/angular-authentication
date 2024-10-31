@@ -16,7 +16,7 @@ export class LocalStorageService {
         `${LocalStorageService.APP_PREFIX}${key}`,
         JSON.stringify(value)
       );
-    } catch (e) {
+    } catch {
       localStorage.setItem(`${LocalStorageService.APP_PREFIX}${key}`, value as string);
     }
   }
@@ -31,7 +31,7 @@ export class LocalStorageService {
     const value = localStorage.getItem(`${LocalStorageService.APP_PREFIX}${key}`);
     try {
       return JSON.parse(value as string);
-    } catch (e) {
+    } catch {
       return value;
     }
   }

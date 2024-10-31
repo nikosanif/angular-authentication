@@ -10,7 +10,7 @@ import { Component, Input } from '@angular/core';
 })
 export class AvatarComponent {
   @Input({ required: true })
-  text: string = '';
+  text = '';
 
   get computedText(): string {
     if (!this.text) return '';

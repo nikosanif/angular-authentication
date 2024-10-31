@@ -1,9 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 const { version } = require('../../package.json');
 
 export const environment = {
-  production: false,
-  appVersion: `${version}-dev`,
+  production: true,
+  appVersion: version,
 
   // Replace this with your server API URL
   // We assigned it to empty string for the Fake API

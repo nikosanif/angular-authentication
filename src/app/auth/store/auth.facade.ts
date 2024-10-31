@@ -1,10 +1,10 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import * as AuthActions from './auth.actions';
+import { LogoutAction, LoginActions, AuthUserActions } from './auth.actions';
 import * as AuthSelectors from './auth.selectors';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthFacade {
   private readonly store = inject(Store);
 
@@ -14,14 +14,14 @@ export class AuthFacade {
   readonly hasLoginError$ = this.store.select(AuthSelectors.selectLoginError);
 
   login(username: string, password: string) {
-    this.store.dispatch(AuthActions.loginRequest({ username, password }));
+    this.store.dispatch(LoginActions.request({ username, password }));
   }
 
   logout() {
-    this.store.dispatch(AuthActions.logout());
+    this.store.dispatch(LogoutAction());
   }
 
   getAuthUser() {
-    this.store.dispatch(AuthActions.getAuthUserRequest());
+    this.store.dispatch(AuthUserActions.request());
   }
 }

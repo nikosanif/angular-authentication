@@ -18,7 +18,6 @@
           [routerLink]="item.link"
           routerLinkActive="active"
           #rla="routerLinkActive"
-          [class.aa--font-bold]="rla.isActive"
           [color]="'error'"
         >
           <fa-icon [icon]="item.icon" />
@@ -30,7 +29,7 @@
   </div>
 
   <div class="aa--flex aa--items-center">
-    @if (authUser$ | async; as user) {
+    @if (authUser; as user) {
       <aa-avatar
         [text]="user.firstName + ' ' + user.lastName"
         [matMenuTriggerFor]="userMenu"
@@ -41,13 +40,13 @@
         <button mat-menu-item type="button" disabled>
           {{ user.firstName + ' ' + user.lastName }}
         </button>
-        <button mat-menu-item type="button" (click)="logout()">
+        <button mat-menu-item type="button" (click)="logout.emit()">
           <fa-icon class="aa--mr-2" [icon]="'right-from-bracket'" />
           Sign out
         </button>
       </mat-menu>
     } @else {
-      <a mat-stroked-button routerLink="/login">
+      <a mat-stroked-button routerLink="/auth/login">
         <fa-icon [icon]="'user'" />
         <span class="aa--ml-2 aa--hidden lg:aa--inline">Login</span>
       </a>

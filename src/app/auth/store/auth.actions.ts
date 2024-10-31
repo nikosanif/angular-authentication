@@ -1,30 +1,36 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction, createActionGroup, emptyProps, props } from '@ngrx/store';
 
 import { AuthUser } from './auth.models';
 
 // Login
-export const loginRequest = createAction(
-  '[Auth] Login Request',
-  props<{ username: string; password: string }>()
-);
-export const loginSuccess = createAction('[Auth] Login Success');
-export const loginFailure = createAction(
-  '[Auth] Login Failure',
-  props<{ error: Error }>()
-);
+export const LoginActions = createActionGroup({
+  source: 'Auth: Login',
+  events: {
+    request: props<{ username: string; password: string }>(),
+    success: emptyProps(),
+    failure: props<{ error: Error }>(),
+  },
+});
 
 // Logout
-export const logout = createAction('[Auth] Logout');
+export const LogoutAction = createAction('[Auth] Logout');
 
 // Auth User: me
-export const getAuthUserRequest = createAction('[Auth] Auth User Request');
-export const getAuthUserSuccess = createAction(
-  '[Auth] Auth User Success',
-  props<{ user: AuthUser }>()
-);
-export const getAuthUserFailure = createAction('[Auth] Auth User Failure');
+export const AuthUserActions = createActionGroup({
+  source: 'Auth: Auth User',
+  events: {
+    request: emptyProps(),
+    success: props<{ user: AuthUser }>(),
+    failure: emptyProps(),
+  },
+});
 
 // Refresh token
-export const refreshTokenRequest = createAction('[Auth] Refresh Token Request');
-export const refreshTokenSuccess = createAction('[Auth] Refresh Token Success');
-export const refreshTokenFailure = createAction('[Auth] Refresh Token Failure');
+export const RefreshTokenActions = createActionGroup({
+  source: 'Auth: Refresh Token',
+  events: {
+    request: emptyProps(),
+    success: emptyProps(),
+    failure: emptyProps(),
+  },
+});
