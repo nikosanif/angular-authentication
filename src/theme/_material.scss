@@ -47,8 +47,10 @@ $angular-authentication-theme: mat.define-theme(
 // that you are using.
 :root {
   @include mat.all-component-themes($angular-authentication-theme);
+}
 
-  // Override material variables
+// Override material variables
+:root {
   --mdc-elevated-card-container-color: #fff;
   --mat-table-background-color: #fff;
 }
