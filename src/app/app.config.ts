@@ -1,8 +1,4 @@
-import {
-  provideHttpClient,
-  withInterceptors,
-  withInterceptorsFromDi,
-} from '@angular/common/http';
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import {
   ApplicationConfig,
   provideExperimentalZonelessChangeDetection,
@@ -17,7 +13,7 @@ import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
 import { routes } from './app.routes';
-import { provideAuthStore } from './auth';
+import { provideAuthStore, authInterceptor } from './auth';
 import { fakeApiInterceptor } from './core/fake-api';
 
 function provideAppDevTools() {
@@ -39,9 +35,11 @@ export const appConfig: ApplicationConfig = {
 
     // Setup Interceptors
     provideHttpClient(
-      withInterceptorsFromDi(),
-      // ⚠️ FIXME: remove it in real app ⚠️
-      withInterceptors([fakeApiInterceptor])
+      withInterceptors([
+        authInterceptor,
+        // ⚠️ FIXME: remove it in real app ⚠️
+        fakeApiInterceptor,
+      ])
     ),
 
     // Setup Application

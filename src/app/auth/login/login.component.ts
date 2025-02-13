@@ -7,7 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { combineLatest } from 'rxjs';
 
-import { AuthFacade } from '../store/auth.facade';
+import { AUTH_FACADE } from '../tokens';
 
 @Component({
   selector: 'aa-login',
@@ -24,7 +24,7 @@ import { AuthFacade } from '../store/auth.facade';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  private readonly authFacade = inject(AuthFacade);
+  private readonly authFacade = inject(AUTH_FACADE);
 
   readonly loginForm = new FormGroup({
     username: new FormControl('', {

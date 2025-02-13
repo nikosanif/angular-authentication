@@ -1,3 +1,5 @@
+import { AuthUser } from '../../models';
+
 export enum TokenStatus {
   PENDING = 'PENDING',
   VALIDATING = 'VALIDATING',
@@ -12,10 +14,4 @@ export interface AuthState {
   refreshTokenStatus: TokenStatus;
   isLoadingLogin: boolean;
   hasLoginError: boolean;
-}
-
-export interface AuthUser {
-  id: number;
-  firstName: string;
-  lastName: string;
 }

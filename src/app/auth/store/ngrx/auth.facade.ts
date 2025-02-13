@@ -1,11 +1,13 @@
 import { Injectable, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
 
+import { IAuthFacade } from '../../models';
+
 import { LogoutAction, LoginActions, AuthUserActions } from './auth.actions';
 import * as AuthSelectors from './auth.selectors';
 
-@Injectable({ providedIn: 'root' })
-export class AuthFacade {
+@Injectable()
+export class NgrxAuthFacade implements IAuthFacade {
   private readonly store = inject(Store);
 
   readonly authUser$ = this.store.select(AuthSelectors.selectAuthUser);
