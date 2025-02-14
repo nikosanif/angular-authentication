@@ -22,6 +22,13 @@ export const features: Feature[] = [
     docs: 'https://ngrx.io/docs',
   },
   {
+    name: 'NGXS',
+    description: 'NGXS is a state management pattern + library for Angular.',
+    link: 'https://www.ngxs.io/',
+    github: 'https://github.com/ngxs/store',
+    docs: 'https://www.ngxs.io',
+  },
+  {
     name: 'Standalone Components',
     description: 'A simplified way to build Angular applications.',
     link: null,

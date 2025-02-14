@@ -1,23 +1,21 @@
 import { EnvironmentProviders, inject, provideAppInitializer } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Store } from '@ngxs/store';
 import { lastValueFrom } from 'rxjs';
 import { filter, take } from 'rxjs/operators';
 
-import { AuthStateModel, TokenStatus } from '../../models';
+import { TokenStatus } from '../../models';
 
-import { RefreshTokenActions } from './auth.actions';
-import * as AuthSelectors from './auth.selectors';
-
-export { AuthEffects } from './auth.effects';
-export { NgrxAuthFacade } from './auth.facade';
-export * from './auth.reducer';
+import { RefreshToken } from './auth.actions';
+import { AuthSelectors } from './auth.selectors';
+export { NgxsAuthFacade } from './auth.facade';
+export { AuthState } from './auth.state';
 
 const initializeAuth = () => {
-  const store = inject<Store<AuthStateModel>>(Store);
+  const store = inject(Store);
 
-  store.dispatch(RefreshTokenActions.request());
+  store.dispatch(new RefreshToken());
 
-  const authState$ = store.select(AuthSelectors.selectAuth).pipe(
+  const authState$ = store.select(AuthSelectors.auth).pipe(
     filter(
       auth =>
         auth.refreshTokenStatus === TokenStatus.INVALID ||

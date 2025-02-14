@@ -1,4 +1,4 @@
-import { AuthUser } from '../../models';
+import { AuthUser } from './auth-user.model';
 
 export enum TokenStatus {
   PENDING = 'PENDING',
@@ -7,7 +7,7 @@ export enum TokenStatus {
   INVALID = 'INVALID',
 }
 
-export interface AuthState {
+export interface AuthStateModel {
   isLoggedIn: boolean;
   user?: AuthUser;
   accessTokenStatus: TokenStatus;

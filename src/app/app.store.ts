@@ -1,13 +1,25 @@
+/**
+ * ⚠️ FIXME: choose one store and remove any unused packages in real app ⚠️
+ * This file contains the store setup for the application.
+ * It supports both Ngrx and Ngxs for the store management, but only one can be used at a time.
+ * In real applications, you should choose one and remove the unused packages.
+ */
+
 import { provideEffects } from '@ngrx/effects';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { provideStore as provideNgrxStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { withNgxsReduxDevtoolsPlugin } from '@ngxs/devtools-plugin';
-import { provideStore as provideNgxsStore } from '@ngxs/store';
+import {
+  provideStore as provideNgxsStore,
+  withNgxsDevelopmentOptions,
+} from '@ngxs/store';
 
 import { environment } from '../environments/environment';
 
 import { provideNgrxAuthStore, provideNgxsAuthStore } from './auth';
+
+const APP_NAME = 'Angular Authentication';
 
 export enum StoreType {
   Ngrx = 'ngrx',
@@ -26,10 +38,19 @@ export function provideSetupStore(storeType: StoreType) {
       provideNgrxStore({ router: routerReducer }),
       provideRouterStore(),
       provideEffects(),
-      isDevToolsEnabled ? provideStoreDevtools({ name: 'Angular Authentication' }) : [],
+      isDevToolsEnabled ? provideStoreDevtools({ name: APP_NAME }) : [],
     ],
     ngxs: [
-      provideNgxsStore([], ...(isDevToolsEnabled ? [withNgxsReduxDevtoolsPlugin()] : [])),
+      provideNgxsStore(
+        [],
+        withNgxsReduxDevtoolsPlugin({
+          name: APP_NAME,
+          disabled: !isDevToolsEnabled,
+        }),
+        withNgxsDevelopmentOptions({
+          warnOnUnhandledActions: true,
+        })
+      ),
     ],
   };
 
