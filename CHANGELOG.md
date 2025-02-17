@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.2.0 (2025-02-17)
+
+- feat(store): support NGXS state management (#10) ([b77e95b](https://github.com/nikosanif/angular-authentication/commit/b77e95b)), closes [#10](https://github.com/nikosanif/angular-authentication/issues/10)
+- chore: update to Node.js v22 ([69a5a11](https://github.com/nikosanif/angular-authentication/commit/69a5a11))
+- build: update to Angular 19 ([dab32da](https://github.com/nikosanif/angular-authentication/commit/dab32da))
+- docs: update readme file ([374e60a](https://github.com/nikosanif/angular-authentication/commit/374e60a))
+
 ## 2.1.0 (2024-10-31)
 
 - feat(app): towards Angular Zoneless (#9) ([0525298](https://github.com/nikosanif/angular-authentication/commit/0525298)), closes [#9](https://github.com/nikosanif/angular-authentication/issues/9)
