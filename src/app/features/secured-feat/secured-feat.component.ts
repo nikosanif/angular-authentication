@@ -9,7 +9,6 @@ import { USERS } from '../../core/fake-api';
 import { GreetingUtil } from '../../shared/util';
 @Component({
   selector: 'aa-secured-feat',
-  standalone: true,
   imports: [AsyncPipe, MatCardModule, MatTableModule],
   templateUrl: './secured-feat.component.html',
 })

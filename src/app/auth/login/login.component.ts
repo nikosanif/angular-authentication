@@ -11,7 +11,6 @@ import { AUTH_FACADE } from '../tokens';
 
 @Component({
   selector: 'aa-login',
-  standalone: true,
   imports: [
     AsyncPipe,
     MatButtonModule,

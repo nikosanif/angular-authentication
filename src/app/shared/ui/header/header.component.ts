@@ -17,7 +17,6 @@ interface MenuItem {
 
 @Component({
   selector: 'aa-header',
-  standalone: true,
   imports: [
     AvatarComponent,
     IconModule,

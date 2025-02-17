@@ -11,7 +11,6 @@ import { HeaderComponent } from './shared/ui/header';
 
 @Component({
   selector: 'aa-root',
-  standalone: true,
   imports: [AsyncPipe, RouterOutlet, HeaderComponent, FooterComponent],
   template: `
     <div class="content">

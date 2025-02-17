@@ -13,7 +13,6 @@ interface PersonalLink {
 
 @Component({
   selector: 'aa-footer',
-  standalone: true,
   imports: [DatePipe, IconModule, MatButtonModule],
   templateUrl: './footer.component.html',
 })
