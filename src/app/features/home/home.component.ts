@@ -9,7 +9,6 @@ import { Feature, features } from './features.data';
 
 @Component({
   selector: 'aa-home',
-  standalone: true,
   imports: [IconModule, MatButtonModule, MatCardModule, MatTooltipModule],
   templateUrl: './home.component.html',
 })

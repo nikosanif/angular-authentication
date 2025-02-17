@@ -1,20 +1,21 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
+import { AuthStateModel, TokenStatus } from '../../models';
+
 import {
   AuthUserActions,
   LoginActions,
   LogoutAction,
   RefreshTokenActions,
 } from './auth.actions';
-import { AuthState, TokenStatus } from './auth.models';
 
 export const AUTH_FEATURE_KEY = 'auth';
 
 export interface AuthPartialState {
-  readonly [AUTH_FEATURE_KEY]: AuthState;
+  readonly [AUTH_FEATURE_KEY]: AuthStateModel;
 }
 
-export const initialState: AuthState = {
+export const initialState: AuthStateModel = {
   isLoggedIn: false,
   user: undefined,
   accessTokenStatus: TokenStatus.PENDING,
@@ -29,7 +30,7 @@ const reducer = createReducer(
   // Login
   on(
     LoginActions.request,
-    (state): AuthState => ({
+    (state): AuthStateModel => ({
       ...state,
       accessTokenStatus: TokenStatus.VALIDATING,
       isLoadingLogin: true,
@@ -40,7 +41,7 @@ const reducer = createReducer(
   // Refresh token
   on(
     RefreshTokenActions.request,
-    (state): AuthState => ({
+    (state): AuthStateModel => ({
       ...state,
       refreshTokenStatus: TokenStatus.VALIDATING,
     })
@@ -50,7 +51,7 @@ const reducer = createReducer(
   on(
     LoginActions.success,
     RefreshTokenActions.success,
-    (state): AuthState => ({
+    (state): AuthStateModel => ({
       ...state,
       isLoggedIn: true,
       isLoadingLogin: false,
@@ -61,7 +62,7 @@ const reducer = createReducer(
   on(
     LoginActions.failure,
     RefreshTokenActions.failure,
-    (state, action): AuthState => ({
+    (state, action): AuthStateModel => ({
       ...state,
       isLoadingLogin: false,
       accessTokenStatus: TokenStatus.INVALID,
@@ -73,7 +74,7 @@ const reducer = createReducer(
   // Logout
   on(
     LogoutAction,
-    (): AuthState => ({
+    (): AuthStateModel => ({
       ...initialState,
     })
   ),
@@ -81,19 +82,22 @@ const reducer = createReducer(
   // Auth user
   on(
     AuthUserActions.success,
-    (state, action): AuthState => ({
+    (state, action): AuthStateModel => ({
       ...state,
       user: action.user,
     })
   ),
   on(
     AuthUserActions.failure,
-    (): AuthState => ({
+    (): AuthStateModel => ({
       ...initialState,
     })
   )
 );
 
-export function authReducer(state: AuthState | undefined, action: Action): AuthState {
+export function authReducer(
+  state: AuthStateModel | undefined,
+  action: Action
+): AuthStateModel {
   return reducer(state, action);
 }

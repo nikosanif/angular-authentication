@@ -33,13 +33,32 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 - [Node.js](https://nodejs.org/en/)
 - [Angular CLI](https://angular.io/cli)
 
-### Setup & Usage
+### Setup & Local Development
 
 - Clone this repository: `git clone git@github.com:nikosanif/angular-authentication.git`
 - `cd angular-authentication`
 - Install dependencies: `npm install`
 - Serve the Angular app: `npm start`
 - Open your browser at: `http://localhost:4200`
+
+### Use it as a Template
+
+The main purpose of this repository is to provide a simple Angular application that demonstrates best practices for user authentication and authorization flows. The application is configured to use a fake API server (interceptor) that simulates the backend server. Also, it includes two state management libraries, NgRx and NGXS, so you can choose which one to use.
+
+If you want to use this repository as a template for your project, you can follow these steps:
+
+- Clone this repository
+- Remove fake API:
+  - Delete `src/app/core/fake-api` folder
+  - Remove all references from the `fake-api` folder
+  - Remove the `fakeApiInterceptor` from `app.config.ts`
+- Choose the state management library you want to use:
+  - NgRx: Remove `src/app/auth/store/ngxs` folder and the `index.ngxs.ts` file
+  - NGXS: Remove `src/app/auth/store/ngrx` folder and the `index.ngrx.ts` file
+  - Rename the `index.XXX.ts` file to `index.ts` in the `src/app/auth/store` folder
+  - Update the `app.store.ts` file to import the correct store module
+  - Remove all unused packages from `package.json`
+- Update the Google Analytics tracking ID by replacing `UA-XXXXX-Y` in the `index.html` file and in the `src/app/core/services/google-analytics.service.ts` file. Or remove the Google Analytics service if you don't want to use it.
 
 ### Useful Commands
 
@@ -63,14 +82,16 @@ Live application: [angular-authentication.netlify.app](https://angular-authentic
 - Standalone Angular components
 - Angular Material UI components
 - Lazy loading of Angular components
-- API requests with `@ngrx/effects`
+- API requests with `@ngrx/effects` or `@ngxs/store` (you can choose at `src/app/app.config.ts`)
 - Responsive design
 - Custom In-memory Web API using interceptors
 
 ## Tech Stack
 
 - [Angular](https://angular.io/)
-- [NgRX](https://ngrx.io/) - @ngrx/{store,effects,component}
+- State Management. This repos demonstrates **two** state management libraries, you can choose which one to use by following the instructions in the [Use it as a Template](#use-it-as-a-template) section.
+  - [NgRX](https://ngrx.io/) - @ngrx/{store,effects,component}
+  - [NGXS](https://www.ngxs.io/) - @ngxs/store
 - [Angular Material UI](https://material.angular.io/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - Other dev tools
@@ -90,15 +111,20 @@ Below is the high-level structure of the application.
 │   ├── app.component.ts
 │   ├── app.config.ts
 │   ├── app.routes.ts
+│   ├── app.store.ts # configure store based on NgRx or NGXS
 │   │
 │   ├── auth # includes authentication logic
 │   │   ├── auth.routes.ts
 │   │   ├── auth.service.ts
-│   │   ├── guards
 │   │   ├── index.ts
+│   │   ├── guards
 │   │   ├── interceptors
 │   │   ├── login
-│   │   └── store
+│   │   ├── models
+│   │   ├── tokens
+│   │   └── store     # Choose one of the following
+│   │       ├── ngrx  # store based on NgRx
+│   │       └── ngxs  # store based on NGXS
 │   │
 │   ├── core # includes core utilities
 │   │   ├── fake-api
@@ -139,7 +165,7 @@ If you have found any bug in the source code or want to _request_ a new feature,
 ## Support
 
 - Star this repository 👆⭐️
-- Help it spread to a wider audience: [![X](https://img.shields.io/twitter/url/https/x.com/nikosanif.svg?style=social&label=Tweet)](https://x.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,MDX,tailwindcss,ngAuth)
+- Help it spread to a wider audience: [![X](https://img.shields.io/twitter/url/https/x.com/nikosanif.svg?style=social&label=Tweet)](https://x.com/intent/tweet?text=An%20Angular%20application%20that%20demonstrates%20best%20practices%20for%20user%20authentication%20and%20authorization%20flows.%0A%0A%40nikosanif%20%0A%F0%9F%94%97%20https%3A%2F%2Fgithub.com%2Fnikosanif%2Fangular-authentication%0A%0A&hashtags=Angular,NgRx,NGXS,MDX,tailwindcss,ngAuth)
 
 ### Author: Nikos Anifantis ✍️
 

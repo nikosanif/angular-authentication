@@ -2,10 +2,10 @@ import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, createUrlTreeFromSnapshot } from '@angular/router';
 import { map, take } from 'rxjs/operators';
 
-import { AuthFacade } from '../store/auth.facade';
+import { AUTH_FACADE } from '../tokens';
 
 export const noAuthGuard = (route: ActivatedRouteSnapshot) => {
-  const authFacade = inject(AuthFacade);
+  const authFacade = inject(AUTH_FACADE);
 
   return authFacade.isLoggedIn$.pipe(
     take(1),

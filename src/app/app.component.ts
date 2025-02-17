@@ -4,14 +4,13 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs';
 
-import { AuthFacade } from './auth';
+import { AUTH_FACADE } from './auth';
 import { ConfigService, GoogleAnalyticsService } from './core/services';
 import { FooterComponent } from './shared/ui/footer';
 import { HeaderComponent } from './shared/ui/header';
 
 @Component({
   selector: 'aa-root',
-  standalone: true,
   imports: [AsyncPipe, RouterOutlet, HeaderComponent, FooterComponent],
   template: `
     <div class="content">
@@ -28,7 +27,7 @@ import { HeaderComponent } from './shared/ui/header';
 export class AppComponent implements OnInit {
   private readonly router = inject(Router);
   private readonly destroyRef = inject(DestroyRef);
-  private readonly authFacade = inject(AuthFacade);
+  private readonly authFacade = inject(AUTH_FACADE);
   private readonly configService = inject(ConfigService);
   private readonly googleAnalyticsService = inject(GoogleAnalyticsService);
 

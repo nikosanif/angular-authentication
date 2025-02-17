@@ -4,8 +4,8 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, finalize, map, tap } from 'rxjs/operators';
 
-import { TokenStorageService } from '../../core/services';
-import { AuthService } from '../auth.service';
+import { TokenStorageService } from '../../../core/services';
+import { AuthService } from '../../auth.service';
 
 import {
   AuthUserActions,
