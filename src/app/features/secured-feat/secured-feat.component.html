@@ -1,7 +1,7 @@
 @if (vm$ | async; as vm) {
   <section>
     <h1>
-      {{ vm.greeting }},
+      {{ currentTime() | greeting }},
       <span class="aa--text-primary">
         {{ vm.authUser?.firstName }} {{ vm.authUser?.lastName }}
       </span>
