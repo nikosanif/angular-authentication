@@ -6,7 +6,8 @@
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
 // Be sure that you only ever include this mixin once!
-@include mat.core();
+@include mat.elevation-classes();
+@include mat.app-background();
 
 $font-main:
   ui-sans-serif,
@@ -51,7 +52,7 @@ $angular-authentication-theme: mat.define-theme(
 
 // Override material variables
 :root {
-  --mdc-elevated-card-container-color: #fff;
+  --mat-card-elevated-container-color: #fff;
   --mat-table-background-color: #fff;
 }
 
