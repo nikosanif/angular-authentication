@@ -1,24 +1,22 @@
 <!-- BEGIN: Main banner -->
 <section>
-  <div class="aa--grid aa--grid-cols-1 aa--gap-4 md:aa--grid-cols-2">
+  <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
     <!-- Left -->
-    <div
-      class="aa--flex aa--flex-col aa--justify-center aa--text-center md:aa--text-left"
-    >
+    <div class="flex flex-col justify-center text-center md:text-left">
       <h1>
         Angular
-        <span class="aa--text-primary">Authentication</span>
+        <span class="text-primary">Authentication</span>
       </h1>
-      <p class="aa--py-5 aa--text-xl lg:aa--py-3 lg:aa--text-2xl">
+      <p class="py-5 text-xl lg:py-3 lg:text-2xl">
         An
-        <span class="aa--text-primary">Angular</span>
+        <span class="text-primary">Angular</span>
         application that demonstrates best practices for user
-        <span class="aa--text-primary">authentication</span>
+        <span class="text-primary">authentication</span>
         &
-        <span class="aa--text-primary">authorization</span>
+        <span class="text-primary">authorization</span>
         flows.
       </p>
-      <div class="aa--mt-4">
+      <div class="mt-4">
         <a
           mat-flat-button
           href="https://github.com/nikosanif/angular-authentication"
@@ -26,14 +24,14 @@
           rel="noopener noreferrer"
         >
           Source Code
-          <fa-icon [icon]="['fab', 'github']" class="aa--ml-2" />
+          <fa-icon [icon]="['fab', 'github']" class="ml-2" />
         </a>
       </div>
     </div>
 
     <!-- Right -->
-    <div class="aa--grid aa--place-items-center">
-      <img src="/assets/security.svg" class="aa--w-2/3" alt="Angular Authentication" />
+    <div class="grid place-items-center">
+      <img src="/assets/security.svg" class="w-2/3" alt="Angular Authentication" />
     </div>
   </div>
 </section>
@@ -41,12 +39,12 @@
 
 <!-- BEGIN: Features -->
 <section>
-  <h2 class="aa--text-center">Features</h2>
-  <p class="subtitle aa--text-center">
+  <h2 class="text-center">Features</h2>
+  <p class="subtitle text-center">
     This repository uses state-of-the-art features for web development.
   </p>
 
-  <div class="aa--grid aa--grid-cols-1 aa--gap-8 md:aa--grid-cols-3 lg:aa--grid-cols-4">
+  <div class="grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4">
     @for (feature of features(); track $index) {
       <mat-card>
         <mat-card-header>
@@ -65,7 +63,7 @@
               [href]="feature.link"
               target="_blank"
               rel="noopener noreferrer"
-              class="aa--mr-4"
+              class="mr-4"
             >
               <fa-icon icon="link" />
             </a>
@@ -78,7 +76,7 @@
               [href]="feature.github"
               target="_blank"
               rel="noopener noreferrer"
-              class="aa--mr-4"
+              class="mr-4"
             >
               <fa-icon [icon]="['fab', 'github']" />
             </a>
@@ -91,7 +89,7 @@
               [href]="feature.docs"
               target="_blank"
               rel="noopener noreferrer"
-              class="aa--mr-4"
+              class="mr-4"
             >
               <fa-icon icon="book" />
             </a>
@@ -101,7 +99,7 @@
     }
   </div>
 
-  <div class="aa--mt-6 aa--flex aa--justify-center">
+  <div class="mt-6 flex justify-center">
     <button mat-raised-button (click)="toggleFeatures()">
       {{ showFeaturesLabel() }}
     </button>

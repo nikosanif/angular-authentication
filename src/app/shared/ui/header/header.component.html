@@ -1,11 +1,11 @@
 <header>
-  <div class="aa--flex aa--items-center">
+  <div class="flex items-center">
     <!-- BEGIN: Title -->
-    <a routerLink="/home" class="aa--flex aa--items-center">
+    <a routerLink="/home" class="flex items-center">
       <img src="/assets/logo.svg" class="logo-icon" alt="Angular Authentication Logo" />
-      <span class="aa--text-xl aa--font-semibold">
-        <span class="aa--hidden lg:aa--inline">Angular Authentication</span>
-        <span class="aa--inline lg:aa--hidden">Auth</span>
+      <span class="text-xl font-semibold">
+        <span class="hidden lg:inline">Angular Authentication</span>
+        <span class="inline lg:hidden">Auth</span>
       </span>
     </a>
     <!-- END: Title -->
@@ -19,21 +19,22 @@
           routerLinkActive="active"
           #rla="routerLinkActive"
           [color]="'error'"
+          class="mx-1"
         >
           <fa-icon [icon]="item.icon" />
-          <span class="aa--ml-2 aa--hidden lg:aa--inline">{{ item.label }}</span>
+          <span class="ml-2 hidden lg:inline">{{ item.label }}</span>
         </a>
       }
     </div>
     <!-- END: Main menu items -->
   </div>
 
-  <div class="aa--flex aa--items-center">
+  <div class="flex items-center">
     @if (authUser; as user) {
       <aa-avatar
         [text]="user.firstName + ' ' + user.lastName"
         [matMenuTriggerFor]="userMenu"
-        class="aa--cursor-pointer"
+        class="cursor-pointer"
       />
 
       <mat-menu #userMenu="matMenu">
@@ -41,14 +42,14 @@
           {{ user.firstName + ' ' + user.lastName }}
         </button>
         <button mat-menu-item type="button" (click)="logout.emit()">
-          <fa-icon class="aa--mr-2" [icon]="'right-from-bracket'" />
+          <fa-icon class="mr-2" [icon]="'right-from-bracket'" />
           Sign out
         </button>
       </mat-menu>
     } @else {
       <a mat-stroked-button routerLink="/auth/login">
         <fa-icon [icon]="'user'" />
-        <span class="aa--ml-2 aa--hidden lg:aa--inline">Login</span>
+        <span class="ml-2 hidden lg:inline">Login</span>
       </a>
     }
 
@@ -57,7 +58,7 @@
       href="https://github.com/nikosanif/angular-authentication"
       target="_blank"
       rel="noopener noreferrer"
-      class="aa--ml-4 aa--text-2xl"
+      class="ml-4 text-2xl"
       [matTooltip]="'Source code'"
     >
       <fa-icon [icon]="['fab', 'github']" />

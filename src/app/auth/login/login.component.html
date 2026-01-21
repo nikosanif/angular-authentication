@@ -1,14 +1,18 @@
 @if (vm$ | async; as vm) {
-  <div class="aa--container aa--flex aa--justify-center">
-    <div class="form-wrapper">
+  <div class="flex justify-center">
+    <div class="mt-10 w-10/12 md:w-1/2">
       <h1>
-        <span class="aa--text-primary">Login</span>
+        <span class="text-primary">Login</span>
         your account
       </h1>
 
       <mat-card>
         <mat-card-content>
-          <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && submit()">
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="loginForm.valid && submit()"
+            class="grid gap-2 bg-white"
+          >
             <div class="alert alert--info">
               Use account
               <b>admin</b>

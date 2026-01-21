@@ -2,14 +2,14 @@
   <section>
     <h1>
       {{ currentTime() | greeting }},
-      <span class="aa--text-primary">
+      <span class="text-primary">
         {{ vm.authUser?.firstName }} {{ vm.authUser?.lastName }}
       </span>
     </h1>
 
-    <p class="aa--text-xl">
+    <p class="text-xl">
       Shhh... 🤫 - This is a
-      <span class="aa--text-primary">top secret</span>
+      <span class="text-primary">top secret</span>
       feature!
     </p>
   </section>
@@ -25,7 +25,7 @@
           only! Feel free to logout and login again using one of the following accounts.
         </div>
 
-        <table mat-table [dataSource]="vm.users" class="aa--w-full">
+        <table mat-table [dataSource]="vm.users" class="w-full">
           <!-- Id Column -->
           <ng-container matColumnDef="id">
             <th mat-header-cell *matHeaderCellDef>Id</th>

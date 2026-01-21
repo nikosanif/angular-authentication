@@ -6,7 +6,7 @@ header {
   padding: 0 1.25rem;
   border-bottom: 1px solid #ededed;
   height: 4rem;
-  @apply aa--bg-white;
+  background-color: white;
 }
 
 .logo-icon {
@@ -20,10 +20,8 @@ header {
   padding-left: 24px;
 
   > a {
-    @apply aa--mx-1;
-
     &.active {
-      @apply aa--bg-secondary;
+      background-color: var(--color-secondary);
     }
   }
 }

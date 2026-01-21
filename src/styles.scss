@@ -1,9 +1,19 @@
-// Import tailwindcss styles
-@use 'tailwindcss/base';
-@use 'tailwindcss/components';
-@use 'tailwindcss/utilities';
+@use 'tailwindcss';
 
 @use './theme';
+
+// Configure tailwindcss
+@theme {
+  --color-primary: #7d01fa;
+  --color-secondary: #e8e1f7;
+  --color-accent: #0dbfa9;
+}
+
+:root {
+  --color-primary: #7d01fa;
+  --color-secondary: #e8e1f7;
+  --color-accent: #0dbfa9;
+}
 
 html,
 body {
@@ -26,4 +36,37 @@ body {
     Segoe UI Emoji,
     Segoe UI Symbol,
     Noto Color Emoji;
+}
+
+// Section styles
+section {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+// Alert styles
+.alert {
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+
+  &.alert--success {
+    background-color: oklch(96.2% 0.044 156.743);
+    color: oklch(44.8% 0.119 151.328);
+  }
+
+  &.alert--error {
+    background-color: oklch(93.6% 0.032 17.717);
+    color: oklch(44.4% 0.177 26.899);
+  }
+
+  &.alert--info {
+    background-color: oklch(93.2% 0.032 255.585);
+    color: oklch(42.4% 0.199 265.638);
+  }
+
+  &.alert--warning {
+    background-color: oklch(97.3% 0.071 103.193);
+    color: oklch(47.6% 0.114 61.907);
+  }
 }

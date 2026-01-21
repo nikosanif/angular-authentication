@@ -20,7 +20,6 @@ import { AUTH_FACADE } from '../tokens';
     ReactiveFormsModule,
   ],
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
   private readonly authFacade = inject(AUTH_FACADE);
