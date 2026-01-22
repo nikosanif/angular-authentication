@@ -1,6 +1,5 @@
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
-import { ApplicationConfig, provideZonelessChangeDetection } from '@angular/core';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
@@ -14,8 +13,7 @@ const storeType = StoreType.Ngxs;
 export const appConfig: ApplicationConfig = {
   providers: [
     // Setup Angular
-    provideZonelessChangeDetection(),
-    provideAnimationsAsync(),
+    provideBrowserGlobalErrorListeners(),
 
     // Setup Store
     provideSetupStore(storeType),
