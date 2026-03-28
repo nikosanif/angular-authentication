@@ -8,6 +8,7 @@ By [@nikosanif](https://x.com/nikosanif)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/4c9d2c63-d481-486a-996c-8451443ac9d6/deploy-status)](https://angular-authentication.netlify.app)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![X Follow](https://img.shields.io/twitter/follow/nikosanif.svg?style=social&label=Follow)](https://x.com/nikosanif)
+[![gitcgr](https://gitcgr.com/badge/nikosanif/angular-authentication.svg)](https://gitcgr.com/nikosanif/angular-authentication)
 
 ## Table of Contents
 
